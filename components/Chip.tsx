@@ -7,7 +7,7 @@ const sizes: Record<ChipSize, string> = {
   md: "text-[13px] px-3.5 py-1.5 border-[1px]",
   // Skills section — interactive tilt on hover
   skill:
-    "text-label px-4 py-[9px] border-[1.5px] cursor-default transition-[transform,border-color] duration-200 hover:border-accent",
+    "text-label px-4 py-[9px] border-[1.5px] cursor-default transition-[rotate,border-color] duration-200 hover:border-accent",
 };
 
 export function Chip({
