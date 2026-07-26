@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 import { MailButton } from "@/components/MailButton";
 import { navLinks, site } from "@/lib/content";
 
+/** Width burger collapses into an inline row (the `nav:` variant). */
+const NAV_BREAKPOINT = 720;
+
 const MORPH =
   "top, width, padding, border-radius, background, backdrop-filter, border-color, box-shadow";
 
@@ -17,6 +20,15 @@ export function SiteNav() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sync = () => {
+      if (window.innerWidth >= NAV_BREAKPOINT) setMenuOpen(false);
+    };
+    sync();
+    window.addEventListener("resize", sync);
+    return () => window.removeEventListener("resize", sync);
   }, []);
 
   useEffect(() => {
@@ -86,7 +98,7 @@ export function SiteNav() {
           menuOpen ? "flex" : "hidden",
           "absolute top-[calc(100%+10px)] min-w-[200px] flex-col items-stretch gap-4 rounded-panel border border-[var(--glass-border)] bg-[var(--glass-bg-menu)] px-[22px] py-5 shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-[18px] backdrop-saturate-[180%]",
           // Desktop: inline row, no chrome.
-          "nav:static nav:flex nav:min-w-0 nav:flex-row nav:items-center nav:gap-[clamp(14px,2.5vw,30px)] nav:rounded-none nav:border-0 nav:bg-transparent nav:p-0 nav:shadow-none nav:backdrop-blur-none",
+          "nav:static nav:flex nav:min-w-0 nav:flex-row nav:items-center nav:gap-[clamp(14px,2.5vw,30px)] nav:rounded-none nav:border-0 nav:bg-transparent nav:p-0 nav:shadow-none nav:backdrop-filter-none",
         ].join(" ")}
         style={{
           right: scrolled ? "0" : "clamp(16px, 5vw, 48px)",
