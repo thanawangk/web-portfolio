@@ -1,0 +1,117 @@
+"use client";
+
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { MailButton } from "@/components/MailButton";
+import { navLinks, site } from "@/lib/content";
+
+const MORPH =
+  "top, width, padding, border-radius, background, backdrop-filter, border-color, box-shadow";
+
+export function SiteNav() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
+
+  return (
+    <nav
+      className="fixed inset-x-0 z-50 mx-auto box-border flex flex-wrap items-center justify-between gap-y-2 border border-solid"
+      style={{
+        top: scrolled ? "18px" : "0",
+        width: scrolled ? "min(760px, calc(100% - 32px))" : "100%",
+        padding: scrolled
+          ? "12px clamp(16px, 3vw, 30px)"
+          : "clamp(12px, 3vw, 18px) clamp(16px, 5vw, 48px)",
+        borderRadius: scrolled ? "var(--radius-pill)" : "0",
+        background: scrolled ? "var(--glass-bg)" : "rgba(24, 22, 26, 0)",
+        backdropFilter: scrolled ? "var(--glass-blur)" : "blur(0px)",
+        WebkitBackdropFilter: scrolled ? "var(--glass-blur)" : "blur(0px)",
+        borderColor: scrolled ? "var(--glass-border)" : "rgba(38, 35, 42, 0)",
+        boxShadow: scrolled ? "var(--glass-shadow)" : "none",
+        transitionProperty: MORPH,
+        transitionDuration: "var(--duration-nav)",
+        transitionTimingFunction: "var(--ease-out-smooth)",
+      }}
+    >
+      <Link
+        href="/"
+        className="font-mono text-nav font-medium text-accent"
+        onClick={closeMenu}
+      >
+        {site.wordmark}
+      </Link>
+
+      <button
+        type="button"
+        onClick={() => setMenuOpen((open) => !open)}
+        aria-label="Toggle menu"
+        aria-expanded={menuOpen}
+        className="flex cursor-pointer flex-col gap-[5px] border-none bg-transparent p-1.5 nav:hidden"
+      >
+        <Bar
+          className={
+            menuOpen ? "translate-y-[7px] rotate-45" : "translate-y-0 rotate-0"
+          }
+        />
+        <Bar className={menuOpen ? "opacity-0" : "opacity-100"} />
+        <Bar
+          className={
+            menuOpen
+              ? "-translate-y-[7px] -rotate-45"
+              : "translate-y-0 rotate-0"
+          }
+        />
+      </button>
+
+      <div
+        className={[
+          // Mobile: glass dropdown anchored under the bar.
+          menuOpen ? "flex" : "hidden",
+          "absolute top-[calc(100%+10px)] min-w-[200px] flex-col items-stretch gap-4 rounded-panel border border-[var(--glass-border)] bg-[var(--glass-bg-menu)] px-[22px] py-5 shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-[18px] backdrop-saturate-[180%]",
+          // Desktop: inline row, no chrome.
+          "nav:static nav:flex nav:min-w-0 nav:flex-row nav:items-center nav:gap-[clamp(14px,2.5vw,30px)] nav:rounded-none nav:border-0 nav:bg-transparent nav:p-0 nav:shadow-none nav:backdrop-blur-none",
+        ].join(" ")}
+        style={{
+          right: scrolled ? "0" : "clamp(16px, 5vw, 48px)",
+        }}
+      >
+        {navLinks.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            onClick={closeMenu}
+            className="rounded-pill px-3.5 py-2 -mx-3.5 -my-2 text-nav text-text-secondary transition-all duration-fast hover:-translate-y-px hover:bg-accent-tint hover:text-accent active:translate-y-0 active:scale-[0.96]"
+          >
+            {link.label}
+          </Link>
+        ))}
+        <MailButton email={site.email} onClick={closeMenu} />
+      </div>
+    </nav>
+  );
+}
+
+function Bar({ className }: { className: string }) {
+  return (
+    <span
+      className={`block h-0.5 w-[22px] rounded-sm bg-text-secondary transition-[transform,opacity] duration-300 ${className}`}
+    />
+  );
+}

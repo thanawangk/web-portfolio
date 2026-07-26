@@ -1,26 +1,169 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Color — surfaces */
+  --color-bg: #18161a;
+  --color-surface: #211f24;
+  --color-surface-alt: #26232a;
+  --color-border: #2c2931;
+  --color-border-strong: #33303a;
+  --color-border-accent: #3a3640;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Color — text */
+  --color-text: #f2ede6;
+  --color-text-secondary: #c9c2b9;
+  --color-text-muted: #a49e96;
+  --color-text-faint: #6e675f;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Color — accent */
+  --color-accent: #6ea8fe;
+  --color-accent-hover: #9cc4ff;
+  --color-accent-strong: #3b8bfd;
+  --color-on-accent: #18161a;
+  --color-accent-tint: rgba(110, 168, 254, 0.12);
+
+  /* Typography scale */
+  --text-h1: clamp(36px, 6.2vw, 68px);
+  --text-h2: clamp(30px, 4.5vw, 42px);
+  --text-h3: 22px;
+  --text-body-lg: clamp(16px, 2.2vw, 19px);
+  --text-body: 17px;
+  --text-card: 15px;
+  --text-nav: 15px;
+  --text-label: 14px;
+  --text-chip: 12px;
+  --text-hand-lg: clamp(38px, 6.5vw, 60px);
+  --text-hand: 26px;
+
+  --leading-tight: 1.04;
+  --leading-body: 1.6;
+  --leading-relaxed: 1.7;
+  --tracking-heading: -0.02em;
+
+  /* Radii */
+  --radius-card: 20px;
+  --radius-panel: 18px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease-out-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-icon: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 0.25s;
+  --duration-nav: 0.45s;
+
+  /* Breakpoints from the design (nav collapse / hero stack) */
+  --breakpoint-nav: 720px;
+  --breakpoint-hero: 900px;
+
+  /* Animations */
+  --animate-bob: bob 5s ease-in-out infinite;
+  --animate-pop-in: popIn 0.25s ease;
+
+  @keyframes bob {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+  @keyframes wobble {
+    0% {
+      transform: rotate(0);
+    }
+    25% {
+      transform: rotate(-3deg) scale(1.03);
+    }
+    50% {
+      transform: rotate(2.5deg);
+    }
+    75% {
+      transform: rotate(-1.5deg);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
+  @keyframes popIn {
+    0% {
+      transform: scale(0.6) rotate(-6deg);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1) rotate(-3deg);
+      opacity: 1;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Font families reference the next/font variables set on <html>. */
+@theme inline {
+  --font-sans: var(--font-space-grotesk), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+  --font-hand: var(--font-caveat), cursive;
+}
+
+:root {
+  --section-pad-y: clamp(44px, 6.5vw, 64px);
+  --page-pad-x: clamp(20px, 5vw, 48px);
+  --page-max-width: 1280px;
+
+  --glass-bg: rgba(38, 35, 42, 0.55);
+  --glass-bg-menu: rgba(38, 35, 42, 0.92);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: blur(18px) saturate(180%);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+@layer base {
+  html {
+    background: var(--color-bg);
+    scroll-behavior: smooth;
+    /* Must live on <html>, not <body>: body-level overflow would make the body
+       its own scroll container and window.scrollY would never advance. */
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+  }
+
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+  }
+}
+
+@utility stripes {
+  /* Diagonal-stripe placeholder used behind project screenshots. */
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-surface-alt) 0 12px,
+    var(--color-surface) 12px 24px
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
