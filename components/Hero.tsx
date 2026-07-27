@@ -84,7 +84,7 @@ export function Hero() {
             />
           </svg>
           <div className="pointer-events-none absolute inset-0 flex items-end justify-center">
-            <div ref={charRef} className="relative w-[72%]">
+            <div ref={charRef} className="@container relative w-[72%]">
               <Image
                 src={heroImg}
                 alt="Cartoon Bank, permanently astonished"
@@ -93,7 +93,7 @@ export function Hero() {
                 className="block h-auto w-full"
               />
               {quip && (
-                <div className="absolute top-[-14%] left-[26%] animate-pop-in -rotate-3 rounded-panel border-2 border-border-accent bg-surface px-5 py-2.5 font-hand text-[clamp(18px,2.4vw,27px)] whitespace-nowrap text-accent">
+                <div className="absolute top-[-14%] left-[26%] animate-pop-in -rotate-3 border-border-accent bg-surface font-hand whitespace-nowrap text-accent [border-radius:3.76cqw] [border-width:0.42cqw] [font-size:5.64cqw] [padding:2.09cqw_4.17cqw]">
                   {quip}
                 </div>
               )}
