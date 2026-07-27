@@ -1,10 +1,12 @@
 export const site = {
-  wordmark: "bank.dev",
-  email: "hello@bank.dev",
+  wordmark: "bankthanawat.dev",
+  email: "thanawat.wangk@outlook.com",
   owner: "Bank Thanawat",
   year: 2026,
   colophon: "made with too many divs",
 };
+
+export const cvUrl = "https://drive.google.com/uc?export=download&id=FILE_ID";
 
 export const navLinks = [
   { href: "/#projects", label: "Projects" },

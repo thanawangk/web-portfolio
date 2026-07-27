@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { Download } from "lucide-react";
 import { useEffect, useState } from "react";
 import { IconMark } from "@/components/IconMark";
-import { MailButton } from "@/components/MailButton";
-import { navLinks, site } from "@/lib/content";
+import { cvUrl, navLinks, site } from "@/lib/content";
 
 /** Width burger collapses into an inline row (the `nav:` variant). */
 const NAV_BREAKPOINT = 720;
@@ -117,7 +117,14 @@ export function SiteNav() {
             {link.label}
           </Link>
         ))}
-        <MailButton email={site.email} onClick={closeMenu} />
+        <a
+          href={cvUrl}
+          target="_blank"
+          className="inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-[22px] py-[9px] text-nav font-medium text-on-accent transition-colors duration-(--duration-fast) hover:bg-accent-hover hover:text-on-accent"
+        >
+          <Download size={17} strokeWidth={2.2} className="shrink-0" />
+          Download CV
+        </a>
       </div>
     </nav>
   );

@@ -1,4 +1,5 @@
 import { Hero } from "@/components/Hero";
+import { MailButton } from "@/components/MailButton";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ProjectCard } from "@/components/ProjectCard";
@@ -144,12 +145,7 @@ export default function Home() {
             Hiring? Have a weird idea? Just want to poke the cartoon? My inbox
             is open.
           </p>
-          <a
-            href={`mailto:${site.email}`}
-            className="inline-block rounded-2xl bg-accent px-9 py-4 text-[19px] font-bold text-on-accent transition-transform duration-(--duration-fast) ease-spring hover:-translate-y-[3px] hover:-rotate-[1.5deg] hover:bg-accent-hover hover:text-on-accent"
-          >
-            {site.email}
-          </a>
+          <MailButton email={site.email} />
           <div className="mt-[22px] flex justify-center gap-7 font-mono text-label">
             {socials.map((s) => (
               <a
