@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { IconMark } from "@/components/IconMark";
 import { MailButton } from "@/components/MailButton";
 import { navLinks, site } from "@/lib/content";
 
@@ -64,10 +65,11 @@ export function SiteNav() {
     >
       <Link
         href="/"
-        className="font-mono text-nav font-medium text-accent"
+        aria-label={`${site.wordmark} — home`}
+        className="inline-flex items-center transition-transform duration-(--duration-fast) hover:-translate-y-px"
         onClick={closeMenu}
       >
-        {site.wordmark}
+        <IconMark className="h-9 w-auto" />
       </Link>
 
       <button
