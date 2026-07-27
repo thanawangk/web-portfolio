@@ -1,33 +1,14 @@
+import { Mail } from "lucide-react";
+
+const ICON_SIZE = 17;
+const ICON_STROKE = 2.2;
+
 function MailIcon() {
   return (
-    <svg
-      width="17"
-      height="17"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="shrink-0"
-      aria-hidden="true"
-    >
-      <rect x="2" y="4" width="20" height="16" rx="3" />
-      <path d="M2 7l10 6 10-6" />
-    </svg>
+    <Mail size={ICON_SIZE} strokeWidth={ICON_STROKE} className="shrink-0" />
   );
 }
 
-/**
- * Timings are written as literal curves rather than var(--ease-icon)/
- * var(--ease-spring): with no `ease-icon` utility class left in the source,
- * Tailwind would tree-shake those theme variables out of the emitted CSS.
- * Values mirror --ease-icon and --ease-spring in design-tokens.css.
- *
- * The transitions target `translate`/`scale` (not `transform`) because
- * Tailwind v4's translate-x/-translate-y/scale utilities set those standalone
- * CSS properties — transitioning `transform` would leave them snapping.
- */
 export function MailButton({
   email,
   onClick,
