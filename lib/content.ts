@@ -67,7 +67,7 @@ export const currently = [
 ];
 
 /** Speech-bubble lines the mascot fires off when poked. */
-export const quips = [
+export const bubbles = [
   "100 on Lighthouse?!",
   "He centered the div?!",
   "Zero layout shift?!",
