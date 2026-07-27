@@ -19,9 +19,7 @@ export function Section({
 }
 
 export function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="mb-2.5 font-mono text-label text-accent">{children}</div>
-  );
+  return <p className="mb-2.5 font-mono text-label text-accent">{children}</p>;
 }
 
 export function SectionHeading({
@@ -32,9 +30,7 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <h2
-      className={`m-0 text-h2 font-bold tracking-heading ${className}`}
-    >
+    <h2 className={`text-h2 font-bold tracking-heading ${className}`}>
       {children}
     </h2>
   );

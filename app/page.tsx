@@ -54,8 +54,8 @@ export default function Home() {
                   {job.period}
                 </div>
                 <div className="min-w-[240px] flex-[1_1_320px]">
-                  <div className="mb-1.5 text-xl font-bold">{job.role}</div>
-                  <p className="m-0 max-w-[640px] text-[15.5px] leading-body text-text-muted">
+                  <h3 className="mb-1.5 text-xl font-bold">{job.role}</h3>
+                  <p className="max-w-[640px] text-[15.5px] leading-body text-text-muted">
                     {job.description}
                   </p>
                 </div>
@@ -73,9 +73,9 @@ export default function Home() {
                 key={group.label}
                 className="flex flex-wrap items-baseline gap-6"
               >
-                <span className="w-[170px] font-hand text-hand text-accent">
+                <h3 className="w-[170px] font-hand text-hand font-normal text-accent">
                   {group.label}
-                </span>
+                </h3>
                 <div className="flex flex-wrap gap-2.5">
                   {group.items.map((item, i) => (
                     <Chip
@@ -104,27 +104,30 @@ export default function Home() {
                 backgroundPosition: "65% 61%",
               }}
             />
-            <div className="font-mono text-label text-accent">
+            <p className="font-mono text-label text-accent">
               {"// the human behind the cartoon"}
-            </div>
+            </p>
           </div>
           <SectionHeading className="mb-[22px]">About me</SectionHeading>
           <div className="flex flex-wrap items-start gap-7">
             <div className="min-w-[280px] flex-[2_1_420px]">
-              <p className="m-0 mb-3.5 max-w-[600px] text-body leading-relaxed text-text-secondary">
+              <p className="mb-3.5 max-w-[600px] text-body leading-relaxed text-text-secondary">
                 I&rsquo;m Bank Thanawat, a frontend-leaning software engineer
                 based in Bangkok. I care about the unglamorous stuff — loading
                 states, keyboard nav, that 80ms where the button does nothing —
                 because that&rsquo;s where &ldquo;fine&rdquo; becomes
                 &ldquo;wow&rdquo;.
               </p>
-              <p className="m-0 max-w-[600px] text-body leading-relaxed text-text-secondary">
+              <p className="max-w-[600px] text-body leading-relaxed text-text-secondary">
                 When I&rsquo;m not shipping, I&rsquo;m redrawing this little
                 guy&rsquo;s face, over-engineering my espresso, or explaining to
                 relatives that no, I can&rsquo;t fix their printer. (I can.)
               </p>
             </div>
-            <Panel title="currently…" className="min-w-[240px] flex-[1_1_260px]">
+            <Panel
+              title="currently…"
+              className="min-w-[240px] flex-[1_1_260px]"
+            >
               <PanelList items={currently} />
             </Panel>
           </div>
@@ -134,16 +137,16 @@ export default function Home() {
           id="contact"
           className="mx-auto max-w-(--page-max-width) px-(--page-pad-x) pt-[clamp(48px,7vw,68px)] pb-(--section-pad-y) text-center"
         >
-          <div className="mb-2.5 -rotate-2 font-hand text-hand-lg text-accent">
+          <h2 className="mb-2.5 -rotate-2 font-hand text-hand-lg font-normal text-accent">
             Let&rsquo;s build something.
-          </div>
+          </h2>
           <p className="mx-auto mb-6 max-w-[420px] text-[clamp(15px,2.2vw,18px)] leading-body text-text-muted">
             Hiring? Have a weird idea? Just want to poke the cartoon? My inbox
             is open.
           </p>
           <a
             href={`mailto:${site.email}`}
-            className="inline-block rounded-pill bg-accent px-9 py-4 text-[19px] font-bold text-on-accent transition-transform duration-fast ease-spring hover:-translate-y-[3px] hover:-rotate-[1.5deg] hover:bg-accent-hover hover:text-on-accent"
+            className="inline-block rounded-pill bg-accent px-9 py-4 text-[19px] font-bold text-on-accent transition-transform duration-(--duration-fast) ease-spring hover:-translate-y-[3px] hover:-rotate-[1.5deg] hover:bg-accent-hover hover:text-on-accent"
           >
             {site.email}
           </a>
@@ -152,7 +155,7 @@ export default function Home() {
               <a
                 key={s.label}
                 href={s.href}
-                className="text-text-secondary transition-colors duration-fast hover:text-accent"
+                className="text-text-secondary transition-colors duration-(--duration-fast) hover:text-accent"
               >
                 {s.label}
               </a>

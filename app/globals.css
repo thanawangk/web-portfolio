@@ -52,9 +52,8 @@
   --duration-fast: 0.25s;
   --duration-nav: 0.45s;
 
-  /* Breakpoints from the design (nav collapse / hero stack) */
+  /* Nav collapses to a burger below this width */
   --breakpoint-nav: 720px;
-  --breakpoint-hero: 900px;
 
   /* Animations */
   --animate-bob: bob 5s ease-in-out infinite;
@@ -69,7 +68,7 @@
       transform: translateY(-12px);
     }
   }
-  
+
   @keyframes popIn {
     0% {
       transform: scale(0.6) rotate(-6deg);
@@ -142,6 +141,12 @@
 
   a:hover {
     color: var(--color-accent-hover);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
   }
 
   ::selection {

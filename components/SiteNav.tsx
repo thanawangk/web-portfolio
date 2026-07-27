@@ -109,7 +109,7 @@ export function SiteNav() {
             key={link.href}
             href={link.href}
             onClick={closeMenu}
-            className="rounded-pill px-3.5 py-2 -mx-3.5 -my-2 text-nav text-text-secondary transition-all duration-fast hover:-translate-y-px hover:bg-accent-tint hover:text-accent active:translate-y-0 active:scale-[0.96]"
+            className="rounded-pill px-3.5 py-2 -mx-3.5 -my-2 text-nav text-text-secondary transition-all duration-(--duration-fast) hover:-translate-y-px hover:bg-accent-tint hover:text-accent active:translate-y-0 active:scale-[0.96]"
           >
             {link.label}
           </Link>

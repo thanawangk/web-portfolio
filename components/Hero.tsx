@@ -38,7 +38,7 @@ export function Hero() {
         <div className="mb-[18px] font-mono text-label text-accent">
           {"// frontend · software engineer"}
         </div>
-        <h1 className="m-0 mb-4 text-h1 leading-tight font-bold tracking-heading">
+        <h1 className="mb-4 text-h1 leading-tight font-bold tracking-heading">
           Hi, I&rsquo;m Bank.
           <br />
           I make the web
@@ -47,20 +47,20 @@ export function Hero() {
             less boring.
           </span>
         </h1>
-        <p className="m-0 mb-6 max-w-[440px] text-body-lg leading-body text-text-muted">
+        <p className="mb-6 max-w-[440px] text-body-lg leading-body text-text-muted">
           Design-system nerd, animation enjoyer, professional div centerer. I
           build interfaces so smooth this guy can&rsquo;t handle it.
         </p>
         <div className="flex flex-wrap items-center gap-4">
           <Link
             href="#projects"
-            className="rounded-pill bg-text px-[26px] py-[13px] text-base font-medium text-on-accent transition-transform duration-fast ease-spring hover:-translate-y-0.5 hover:-rotate-1 hover:bg-white hover:text-on-accent"
+            className="rounded-pill bg-text px-[26px] py-[13px] text-base font-medium text-on-accent transition-transform duration-(--duration-fast) ease-spring hover:-translate-y-0.5 hover:-rotate-1 hover:bg-white hover:text-on-accent"
           >
             See projects
           </Link>
           <a
             href="#"
-            className="rounded-pill border-[1.5px] border-border-strong px-[26px] py-3 text-base text-text-secondary transition-colors duration-fast hover:border-accent hover:text-accent"
+            className="rounded-pill border-[1.5px] border-border-strong px-[26px] py-3 text-base text-text-secondary transition-colors duration-(--duration-fast) hover:border-accent hover:text-accent"
           >
             Résumé ↓
           </a>

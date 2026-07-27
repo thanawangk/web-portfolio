@@ -8,7 +8,6 @@ export function ProjectCard({
   tilt = "left",
 }: {
   project: Project;
-  /** Cards alternate their hover tilt down the grid. */
   tilt?: "left" | "right";
 }) {
   return (
@@ -24,9 +23,9 @@ export function ProjectCard({
           <span className="font-mono text-[13px] text-accent">
             {project.num}
           </span>
-          <span className="text-h3 font-bold">{project.name}</span>
+          <h3 className="text-h3 font-bold">{project.name}</h3>
         </div>
-        <p className="m-0 mb-4 text-card leading-[1.55] text-text-muted">
+        <p className="mb-4 text-card leading-[1.55] text-text-muted">
           {project.tagline}
         </p>
         <div className="flex flex-wrap gap-2">

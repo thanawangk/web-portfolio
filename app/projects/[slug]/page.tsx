@@ -17,6 +17,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
+
   if (!project) return { title: "Project not found" };
   return {
     title: project.name,
@@ -39,20 +40,20 @@ export default async function ProjectPage({ params }: Params) {
         </Link>
         <Link
           href="/#projects"
-          className="rounded-pill px-3.5 py-2 text-nav text-text-secondary transition-all duration-fast hover:bg-accent-tint hover:text-accent"
+          className="rounded-pill px-3.5 py-2 text-nav text-text-secondary transition-colors duration-(--duration-fast) hover:bg-accent-tint hover:text-accent"
         >
           ← All projects
         </Link>
       </nav>
 
       <main className="mx-auto max-w-[900px] px-(--page-pad-x) pt-[clamp(28px,5vw,56px)] pb-[60px]">
-        <div className="mb-3 font-mono text-label text-accent">
+        <p className="mb-3 font-mono text-label text-accent">
           {`// project ${project.num}`}
-        </div>
-        <h1 className="m-0 mb-3.5 text-[clamp(38px,6vw,60px)] font-bold tracking-heading">
+        </p>
+        <h1 className="mb-3.5 text-[clamp(38px,6vw,60px)] font-bold tracking-heading">
           {project.name}
         </h1>
-        <p className="m-0 mb-[22px] max-w-[620px] text-[clamp(17px,2.4vw,21px)] leading-body text-text-muted">
+        <p className="mb-[22px] max-w-[620px] text-[clamp(17px,2.4vw,21px)] leading-body text-text-muted">
           {project.tagline}
         </p>
 
@@ -71,12 +72,12 @@ export default async function ProjectPage({ params }: Params) {
 
         <div className="flex flex-wrap items-start gap-7">
           <div className="min-w-[260px] flex-[2_1_380px]">
-            <h2 className="m-0 mb-3 text-2xl font-bold">What it is</h2>
-            <p className="m-0 mb-[18px] text-body leading-relaxed text-text-secondary">
+            <h2 className="mb-3 text-2xl font-bold">What it is</h2>
+            <p className="mb-[18px] text-body leading-relaxed text-text-secondary">
               {project.what}
             </p>
-            <h2 className="m-0 mb-3 text-2xl font-bold">The fun part</h2>
-            <p className="m-0 text-body leading-relaxed text-text-secondary">
+            <h2 className="mb-3 text-2xl font-bold">The fun part</h2>
+            <p className="text-body leading-relaxed text-text-secondary">
               {project.fun}
             </p>
           </div>

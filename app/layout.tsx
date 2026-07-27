@@ -20,18 +20,24 @@ const caveat = Caveat({
   weight: ["600", "700"],
 });
 
+const SITE_URL = "https://bank.dev";
+const TITLE = "Bank Thanawat — frontend engineer";
+const DESCRIPTION =
+  "Frontend-leaning software engineer in Bangkok. Design systems, animation, and the unglamorous details that turn “fine” into “wow”.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bank.dev"),
-  title: {
-    default: "Bank Thanawat — frontend engineer",
-    template: "%s — bank.dev",
-  },
-  description:
-    "Frontend-leaning software engineer in Bangkok. Design systems, animation, and the unglamorous details that turn “fine” into “wow”.",
+  metadataBase: new URL(SITE_URL),
+  title: { default: TITLE, template: "%s — bank.dev" },
+  description: DESCRIPTION,
+  applicationName: "bank.dev",
+  authors: [{ name: "Bank Thanawat", url: SITE_URL }],
+  creator: "Bank Thanawat",
   openGraph: {
-    title: "Bank Thanawat — frontend engineer",
-    description: "I make the web less boring.",
     type: "website",
+    siteName: "bank.dev",
+    url: "/",
+    title: TITLE,
+    description: "I make the web less boring.",
     images: ["/hero.png"],
   },
 };
