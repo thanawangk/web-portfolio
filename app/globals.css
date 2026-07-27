@@ -43,7 +43,7 @@
   /* Radii */
   --radius-card: 20px;
   --radius-panel: 18px;
-  --radius-pill: 999px;
+  --radius-nav: 18px;
 
   /* Motion */
   --ease-out-smooth: cubic-bezier(0.4, 0, 0.2, 1);

@@ -54,13 +54,13 @@ export function Hero() {
         <div className="flex flex-wrap items-center gap-4">
           <Link
             href="#projects"
-            className="rounded-pill bg-text px-[26px] py-[13px] text-base font-medium text-on-accent transition-transform duration-(--duration-fast) ease-spring hover:-translate-y-0.5 hover:-rotate-1 hover:bg-white hover:text-on-accent"
+            className="rounded-2xl bg-text px-[26px] py-[13px] text-base font-medium text-on-accent transition-transform duration-(--duration-fast) ease-spring hover:-translate-y-0.5 hover:-rotate-1 hover:bg-white hover:text-on-accent"
           >
             See projects
           </Link>
           <a
             href="#"
-            className="rounded-pill border-[1.5px] border-border-strong px-[26px] py-3 text-base text-text-secondary transition-colors duration-(--duration-fast) hover:border-accent hover:text-accent"
+            className="rounded-2xl border-[1.5px] border-border-strong px-[26px] py-3 text-base text-text-secondary transition-colors duration-(--duration-fast) hover:border-accent hover:text-accent"
           >
             Résumé ↓
           </a>

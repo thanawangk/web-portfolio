@@ -40,7 +40,7 @@ export default async function ProjectPage({ params }: Params) {
         </Link>
         <Link
           href="/#projects"
-          className="rounded-pill px-3.5 py-2 text-nav text-text-secondary transition-colors duration-(--duration-fast) hover:bg-accent-tint hover:text-accent"
+          className="rounded-2xl px-3.5 py-2 text-nav text-text-secondary transition-colors duration-(--duration-fast) hover:bg-accent-tint hover:text-accent"
         >
           ← All projects
         </Link>

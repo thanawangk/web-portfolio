@@ -16,6 +16,7 @@ export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Turn nav into "scrolled" state when the user scroll down a bit
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
@@ -48,11 +49,11 @@ export function SiteNav() {
       className="fixed inset-x-0 z-50 mx-auto box-border flex flex-wrap items-center justify-between gap-y-2 border border-solid"
       style={{
         top: scrolled ? "18px" : "0",
-        width: scrolled ? "min(760px, calc(100% - 32px))" : "100%",
+        width: scrolled ? "min(840px, calc(100% - 32px))" : "100%",
         padding: scrolled
           ? "12px clamp(16px, 3vw, 30px)"
           : "clamp(12px, 3vw, 18px) clamp(16px, 5vw, 48px)",
-        borderRadius: scrolled ? "var(--radius-pill)" : "0",
+        borderRadius: scrolled ? "var(--radius-nav)" : "0",
         background: scrolled ? "var(--glass-bg)" : "rgba(24, 22, 26, 0)",
         backdropFilter: scrolled ? "var(--glass-blur)" : "blur(0px)",
         WebkitBackdropFilter: scrolled ? "var(--glass-blur)" : "blur(0px)",
@@ -69,7 +70,7 @@ export function SiteNav() {
         className="inline-flex items-center transition-transform duration-(--duration-fast) hover:-translate-y-px"
         onClick={closeMenu}
       >
-        <IconMark className="h-9 w-auto" />
+        <IconMark className="h-10 w-auto" />
       </Link>
 
       <button
@@ -111,7 +112,7 @@ export function SiteNav() {
             key={link.href}
             href={link.href}
             onClick={closeMenu}
-            className="rounded-pill px-3.5 py-2 -mx-3.5 -my-2 text-nav text-text-secondary transition-all duration-(--duration-fast) hover:-translate-y-px hover:bg-accent-tint hover:text-accent active:translate-y-0 active:scale-[0.96]"
+            className="rounded-2xl px-3.5 py-2 -mx-3.5 -my-2 text-nav text-text-secondary transition-all duration-(--duration-fast) hover:-translate-y-px hover:bg-accent-tint hover:text-accent active:translate-y-0 active:scale-[0.96]"
           >
             {link.label}
           </Link>

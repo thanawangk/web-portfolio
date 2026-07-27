@@ -146,7 +146,7 @@ export default function Home() {
           </p>
           <a
             href={`mailto:${site.email}`}
-            className="inline-block rounded-pill bg-accent px-9 py-4 text-[19px] font-bold text-on-accent transition-transform duration-(--duration-fast) ease-spring hover:-translate-y-[3px] hover:-rotate-[1.5deg] hover:bg-accent-hover hover:text-on-accent"
+            className="inline-block rounded-2xl bg-accent px-9 py-4 text-[19px] font-bold text-on-accent transition-transform duration-(--duration-fast) ease-spring hover:-translate-y-[3px] hover:-rotate-[1.5deg] hover:bg-accent-hover hover:text-on-accent"
           >
             {site.email}
           </a>
