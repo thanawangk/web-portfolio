@@ -25,7 +25,7 @@ export default function Home() {
         <Section id="projects">
           <SectionLabel>{"// selected work"}</SectionLabel>
           <SectionHeading className="mb-[26px]">
-            Things I&rsquo;ve shipped
+            Things I've shipped
           </SectionHeading>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-[clamp(18px,2.5vw,26px)]">
             {projects.map((project, i) => (
@@ -113,16 +113,15 @@ export default function Home() {
           <div className="flex flex-wrap items-start gap-7">
             <div className="min-w-[280px] flex-[2_1_420px]">
               <p className="mb-3.5 max-w-[600px] text-body leading-relaxed text-text-secondary">
-                I&rsquo;m Bank Thanawat, a frontend-leaning software engineer
-                based in Bangkok. I care about the unglamorous stuff — loading
-                states, keyboard nav, that 80ms where the button does nothing —
-                because that&rsquo;s where &ldquo;fine&rdquo; becomes
-                &ldquo;wow&rdquo;.
+                I'm Bank Thanawat, a frontend-leaning software engineer based in
+                Bangkok. I care about the unglamorous stuff — loading states,
+                keyboard nav, that 80ms where the button does nothing — because
+                that's where "fine" becomes "wow".
               </p>
               <p className="max-w-[600px] text-body leading-relaxed text-text-secondary">
-                When I&rsquo;m not shipping, I&rsquo;m redrawing this little
-                guy&rsquo;s face, over-engineering my espresso, or explaining to
-                relatives that no, I can&rsquo;t fix their printer. (I can.)
+                When I'm not shipping, I'm redrawing this little guy's face,
+                over-engineering my espresso, or explaining to relatives that
+                no, I can't fix their printer. (I can.)
               </p>
             </div>
             <Panel
@@ -139,7 +138,7 @@ export default function Home() {
           className="mx-auto max-w-(--page-max-width) px-(--page-pad-x) pt-[clamp(48px,7vw,68px)] pb-(--section-pad-y) text-center"
         >
           <h2 className="mb-2.5 -rotate-2 font-hand text-hand-lg font-normal text-accent">
-            Let&rsquo;s build something.
+            Let's build something.
           </h2>
           <p className="mx-auto mb-6 max-w-[420px] text-[clamp(15px,2.2vw,18px)] leading-body text-text-muted">
             Hiring? Have a weird idea? Just want to poke the cartoon? My inbox

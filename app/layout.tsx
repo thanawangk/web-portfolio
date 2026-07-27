@@ -21,7 +21,7 @@ const caveat = Caveat({
 });
 
 const SITE_URL = "https://bankthanawat.vercel.app/";
-const TITLE = "Bank Thanawat - Web Developer";
+const TITLE = "Thanawat Wangkhem - Web Developer";
 const DESCRIPTION =
   "Developer from Thailand. Just a human making the digital world a bit cooler, one pixel at a time, balancing clean code with a love for great design.";
 
