@@ -11,7 +11,7 @@ const tilts: Record<Tilt, string> = {
 export function ProjectCard({ project, tilt = "left" }: ProjectCardProps) {
   return (
     <Link
-      href="/" // href={`/projects/${project.slug}`}
+      href="/#projects" // href={`/projects/${project.slug}`}
       className={`block overflow-hidden rounded-card border-[1.5px] border-border bg-surface text-text transition-[translate,rotate,border-color] duration-200 hover:-translate-y-[5px] hover:border-accent hover:text-text ${tilts[tilt]}`}
     >
       {/* caption={project.shot} */}

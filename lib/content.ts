@@ -9,21 +9,16 @@ export const site = {
 export const cvUrl =
   "https://drive.google.com/file/d/1U3JUudqlVuSCopY2BBirLqe4xj7nuHjw/view";
 
-export const socialLinks = {
-  linkedin: "https://www.linkedin.com/in/thanawangk/",
-  github: "https://github.com/thanawangk",
-};
-
 export const navLinks = [
   { href: "/#projects", label: "Projects" },
   { href: "/#experience", label: "Experience" },
   { href: "/#about", label: "About" },
 ];
 
-export const socials = [
-  { label: "github", href: "#" },
-  { label: "linkedin", href: "#" },
-  { label: "twitter/x", href: "#" },
+export const socialLinks = [
+  { label: "LinkedIn", link: "https://github.com/thanawangk" },
+  { label: "GitHub", link: "https://www.linkedin.com/in/thanawangk/" },
+  { label: "Twitter", link: "#" },
 ];
 
 export const experience = [

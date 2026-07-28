@@ -12,7 +12,7 @@ import {
   experience,
   site,
   skillGroups,
-  socials,
+  socialLinks,
 } from "@/lib/content";
 
 export default function Home() {
@@ -39,7 +39,7 @@ export default function Home() {
         </Section>
 
         <Section id="experience">
-          <SectionLabel>{"// the résumé bit"}</SectionLabel>
+          <SectionLabel>{"// the resume bit"}</SectionLabel>
           <SectionHeading className="mb-5">Experience</SectionHeading>
           <div className="flex flex-col border-t border-surface-alt pt-5">
             {experience.map((job, i) => (
@@ -145,10 +145,10 @@ export default function Home() {
           </p>
           <MailButton email={site.email} />
           <div className="mt-[22px] flex justify-center gap-7 font-mono text-label">
-            {socials.map((s) => (
+            {socialLinks.map((s) => (
               <a
                 key={s.label}
-                href={s.href}
+                href={s.link}
                 className="text-text-secondary transition-colors duration-(--duration-fast) hover:text-accent"
               >
                 {s.label}

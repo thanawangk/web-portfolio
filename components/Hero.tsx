@@ -55,16 +55,16 @@ export function Hero() {
         </p>
         <div className="flex flex-wrap items-center gap-4">
           <IconButton
-            href={socialLinks.linkedin}
+            href={socialLinks[0].link}
             icon={linkedinIcon}
-            message="LinkedIn"
+            message={socialLinks[0].label}
             color="light"
             eager
           />
           <IconButton
-            href={socialLinks.github}
+            href={socialLinks[1].link}
             icon={githubIcon}
-            message="GitHub"
+            message={socialLinks[1].label}
             color="outline"
             eager
           />
