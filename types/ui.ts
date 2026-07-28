@@ -1,5 +1,5 @@
 import type { StaticImageData } from "next/image";
-import type { ComponentType, ReactNode } from "react";
+import type { ComponentType } from "react";
 import type { Project } from "@/types/content";
 
 /**
@@ -49,7 +49,6 @@ export type ChipTone = "secondary" | "bright";
 export type Tilt = "left" | "right";
 
 export interface ChipProps {
-  // children: ReactNode;
   message: string;
   size?: ChipSize;
   tone?: ChipTone;
