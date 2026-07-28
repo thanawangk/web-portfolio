@@ -27,7 +27,7 @@ export default function Home() {
           <SectionHeading className="mb-[26px]">
             Things I've shipped
           </SectionHeading>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-[clamp(18px,2.5vw,26px)]">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(360px,1fr))] gap-[clamp(18px,2.5vw,26px)]">
             {projects.map((project, i) => (
               <ProjectCard
                 key={project.slug}
