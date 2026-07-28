@@ -39,7 +39,7 @@ export default function Home() {
         </Section>
 
         <Section id="experience">
-          <SectionLabel>{"// the resume bit"}</SectionLabel>
+          <SectionLabel>{"// career journey"}</SectionLabel>
           <SectionHeading className="mb-5">Experience</SectionHeading>
           <div className="flex flex-col border-t border-surface-alt pt-5">
             {experience.map((job, i) => (

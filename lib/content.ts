@@ -13,6 +13,7 @@ export const navLinks = [
   { href: "/#projects", label: "Projects" },
   { href: "/#experience", label: "Experience" },
   { href: "/#about", label: "About" },
+  // { href: "/#contact", label: "Contact" },
 ];
 
 export const socialLinks = [
@@ -23,22 +24,28 @@ export const socialLinks = [
 
 export const experience = [
   {
-    period: "2024 — now",
-    role: "Senior Frontend Engineer · Placeholder Co",
+    period: "2025 — now",
+    role: "Frontend Developer · PwC Thailand",
     description:
-      "Own the design system used by 6 product teams. Cut bundle size 38% and nobody noticed, which is the point.",
+      "Built complex banking workflows, working across teams to deliver scalable and reliable web solutions.",
   },
   {
-    period: "2021 — 2024",
-    role: "Frontend Engineer · Some Startup",
+    period: "2023 — 2025",
+    role: "Associate Transformational Consultant · NTT DATA (Thailand)",
     description:
-      "Employee #7. Built the web app from zero to 200k users, plus the internal tools everyone secretly liked more.",
+      "Designed and developed a web application for contact center data management and reporting support multiple business units.",
   },
   {
-    period: "2019 — 2021",
-    role: "Software Engineer · An Agency",
+    period: "2022 — 2023",
+    role: "Associate Software Application Development Engineer · NTT (Thailand)",
     description:
-      "Shipped 20+ client sites. Learned that “can you make the logo bigger” is a lifestyle, not a request.",
+      "Delivered new features for evolving business needs, optimizing frontend performance with large datasets.",
+  },
+  {
+    period: "2021 — 2021",
+    role: "Frontend Developer · Faculty of Engineering at Sriracha",
+    description:
+      "Web development for document reservation with responsive design and role-based access control.",
   },
 ];
 
