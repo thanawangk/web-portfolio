@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Chip } from "@/components/Chip";
 import { ScreenshotSlot } from "@/components/ScreenshotSlot";
-import type { Project } from "@/lib/projects";
+import type { Project } from "@/types/content";
 
 export function ProjectCard({
   project,

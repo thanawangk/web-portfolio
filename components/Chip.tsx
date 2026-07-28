@@ -1,4 +1,4 @@
-type ChipSize = "sm" | "md" | "skill";
+import type { ChipProps, ChipSize } from "@/types/ui";
 
 const sizes: Record<ChipSize, string> = {
   // Project card tags
@@ -15,12 +15,7 @@ export function Chip({
   size = "sm",
   tone = "secondary",
   tilt,
-}: {
-  children: React.ReactNode;
-  size?: ChipSize;
-  tone?: "secondary" | "bright";
-  tilt?: "left" | "right";
-}) {
+}: ChipProps) {
   return (
     <span
       className={[

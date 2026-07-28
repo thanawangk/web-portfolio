@@ -1,18 +1,4 @@
-export type Project = {
-  slug: string;
-  num: string;
-  name: string;
-  tagline: string;
-  stack: string[];
-  /** Placeholder caption for the screenshot slot. */
-  shot: string;
-  role: string;
-  year: string;
-  status: string;
-  what: string;
-  fun: string;
-  links: { label: string; href: string }[];
-};
+import type { Project } from "@/types/content";
 
 export const projects: Project[] = [
   {
