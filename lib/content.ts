@@ -8,6 +8,11 @@ export const site = {
 
 export const cvUrl = "https://drive.google.com/uc?export=download&id=FILE_ID";
 
+export const socialLinks = {
+  linkedin: "https://www.linkedin.com/",
+  github: "https://github.com/",
+};
+
 export const navLinks = [
   { href: "/#projects", label: "Projects" },
   { href: "/#experience", label: "Experience" },
