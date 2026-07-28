@@ -1,10 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { IconButton } from "@/components/IconButton";
 import heroImg from "@/public/hero.png";
-import { bubbles } from "@/lib/content";
+import githubIcon from "@/public/images/github.png";
+import linkedinIcon from "@/public/images/linkedin.png";
+import { bubbles, socialLinks } from "@/lib/content";
 
 export function Hero() {
   const charRef = useRef<HTMLDivElement>(null);
@@ -52,28 +54,22 @@ export function Hero() {
           passion for great design.
         </p>
         <div className="flex flex-wrap items-center gap-4">
-          <Link
-            href="#"
-            className="flex rounded-2xl bg-text px-[26px] py-[13px] text-base font-medium text-on-accent transition-transform duration-(--duration-fast) ease-spring hover:-translate-y-0.5 hover:-rotate-1 hover:bg-white hover:text-on-accent"
+          <IconButton
+            href={socialLinks.linkedin}
+            icon={linkedinIcon}
+            color="light"
+            eager
           >
-            <img
-              src="/images/linkedin.png"
-              alt="LinkedIn"
-              className="w-5 h-5 mr-2 rounded-xs"
-            />
             LinkedIn
-          </Link>
-          <a
-            href="#"
-            className="flex rounded-2xl border-[1.5px] border-border-strong px-[26px] py-3 text-base text-text-secondary transition-colors duration-(--duration-fast) hover:border-accent hover:text-accent"
+          </IconButton>
+          <IconButton
+            href={socialLinks.github}
+            icon={githubIcon}
+            color="outline"
+            eager
           >
-            <img
-              src="/images/github.png"
-              alt="GitHub"
-              className="w-5 h-5 mr-2"
-            />
             GitHub
-          </a>
+          </IconButton>
         </div>
         <div className="mt-[30px] -rotate-2 font-hand text-[23px] text-text-faint">
           ↓ scroll

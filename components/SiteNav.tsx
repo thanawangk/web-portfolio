@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Download } from "lucide-react";
 import { useEffect, useState } from "react";
+import { IconButton } from "@/components/IconButton";
 import { IconMark } from "@/components/IconMark";
 import { cvUrl, navLinks, site } from "@/lib/content";
 
@@ -117,14 +118,9 @@ export function SiteNav() {
             {link.label}
           </Link>
         ))}
-        <a
-          href={cvUrl}
-          target="_blank"
-          className="inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-[22px] py-[9px] text-nav font-medium text-on-accent transition-colors duration-(--duration-fast) hover:bg-accent-hover hover:text-on-accent"
-        >
-          <Download size={17} strokeWidth={2.2} className="shrink-0" />
+        <IconButton href={cvUrl} icon={Download} color="accent" size="sm">
           Download CV
-        </a>
+        </IconButton>
       </div>
     </nav>
   );
