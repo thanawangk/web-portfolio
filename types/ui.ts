@@ -1,5 +1,6 @@
 import type { StaticImageData } from "next/image";
 import type { ComponentType, ReactNode } from "react";
+import type { Project } from "@/types/content";
 
 /**
  * Union and derived types stay as `type` — an interface cannot express a
@@ -19,6 +20,12 @@ export type IconSource = string | StaticImageData | IconComponent;
 export type IconButtonColor = "accent" | "light" | "outline";
 export type IconButtonSize = "sm" | "md";
 
+/** Shape of one entry in the IconButton size table. */
+export interface IconButtonVariant {
+  shell: string;
+  icon: number;
+}
+
 export interface ButtonIconProps {
   icon: IconSource;
   size: number;
@@ -28,7 +35,7 @@ export interface ButtonIconProps {
 export interface IconButtonProps {
   href: string;
   icon: IconSource;
-  children: ReactNode;
+  message: string;
   color?: IconButtonColor;
   size?: IconButtonSize;
   /** Set on above-the-fold buttons so the raster isn't lazy-loaded. */
@@ -42,8 +49,14 @@ export type ChipTone = "secondary" | "bright";
 export type Tilt = "left" | "right";
 
 export interface ChipProps {
-  children: ReactNode;
+  // children: ReactNode;
+  message: string;
   size?: ChipSize;
   tone?: ChipTone;
+  tilt?: Tilt;
+}
+
+export interface ProjectCardProps {
+  project: Project;
   tilt?: Tilt;
 }

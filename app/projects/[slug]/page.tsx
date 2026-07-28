@@ -59,9 +59,7 @@ export default async function ProjectPage({ params }: Params) {
 
         <div className="mb-8 flex flex-wrap gap-2">
           {project.stack.map((tech) => (
-            <Chip key={tech} size="md">
-              {tech}
-            </Chip>
+            <Chip key={tech} size="md" message={tech} />
           ))}
         </div>
 

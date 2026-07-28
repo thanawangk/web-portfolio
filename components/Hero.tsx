@@ -57,19 +57,17 @@ export function Hero() {
           <IconButton
             href={socialLinks.linkedin}
             icon={linkedinIcon}
+            message="LinkedIn"
             color="light"
             eager
-          >
-            LinkedIn
-          </IconButton>
+          />
           <IconButton
             href={socialLinks.github}
             icon={githubIcon}
+            message="GitHub"
             color="outline"
             eager
-          >
-            GitHub
-          </IconButton>
+          />
         </div>
         <div className="mt-[30px] -rotate-2 font-hand text-[23px] text-text-faint">
           ↓ scroll

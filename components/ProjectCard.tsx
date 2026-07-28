@@ -1,21 +1,18 @@
 import Link from "next/link";
 import { Chip } from "@/components/Chip";
 import { ScreenshotSlot } from "@/components/ScreenshotSlot";
-import type { Project } from "@/types/content";
+import type { ProjectCardProps, Tilt } from "@/types/ui";
 
-export function ProjectCard({
-  project,
-  tilt = "left",
-}: {
-  project: Project;
-  tilt?: "left" | "right";
-}) {
+const tilts: Record<Tilt, string> = {
+  left: "hover:-rotate-[0.6deg]",
+  right: "hover:rotate-[0.6deg]",
+};
+
+export function ProjectCard({ project, tilt = "left" }: ProjectCardProps) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className={`block overflow-hidden rounded-card border-[1.5px] border-border bg-surface text-text transition-[translate,rotate,border-color] duration-200 hover:-translate-y-[5px] hover:border-accent hover:text-text ${
-        tilt === "left" ? "hover:-rotate-[0.6deg]" : "hover:rotate-[0.6deg]"
-      }`}
+      className={`block overflow-hidden rounded-card border-[1.5px] border-border bg-surface text-text transition-[translate,rotate,border-color] duration-200 hover:-translate-y-[5px] hover:border-accent hover:text-text ${tilts[tilt]}`}
     >
       <ScreenshotSlot caption={project.shot} className="h-[168px]" />
       <div className="p-5">
@@ -30,7 +27,7 @@ export function ProjectCard({
         </p>
         <div className="flex flex-wrap gap-2">
           {project.stack.map((tech) => (
-            <Chip key={tech}>{tech}</Chip>
+            <Chip key={tech} message={tech} />
           ))}
         </div>
       </div>

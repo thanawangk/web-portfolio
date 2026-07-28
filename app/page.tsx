@@ -81,12 +81,11 @@ export default function Home() {
                   {group.items.map((item, i) => (
                     <Chip
                       key={item}
+                      message={item}
                       size="skill"
                       tone={group.emphasis ? "bright" : "secondary"}
                       tilt={i % 2 === 0 ? "left" : "right"}
-                    >
-                      {item}
-                    </Chip>
+                    />
                   ))}
                 </div>
               </div>

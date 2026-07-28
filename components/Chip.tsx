@@ -1,4 +1,4 @@
-import type { ChipProps, ChipSize } from "@/types/ui";
+import type { ChipProps, ChipSize, ChipTone, Tilt } from "@/types/ui";
 
 const sizes: Record<ChipSize, string> = {
   // Project card tags
@@ -10,8 +10,18 @@ const sizes: Record<ChipSize, string> = {
     "text-label px-4 py-[9px] border-[1.5px] cursor-default transition-[rotate,border-color] duration-200 hover:border-accent",
 };
 
+const tones: Record<ChipTone, string> = {
+  secondary: "text-text-secondary",
+  bright: "text-text",
+};
+
+const tilts: Record<Tilt, string> = {
+  left: "hover:-rotate-2",
+  right: "hover:rotate-2",
+};
+
 export function Chip({
-  children,
+  message,
   size = "sm",
   tone = "secondary",
   tilt,
@@ -21,14 +31,13 @@ export function Chip({
       className={[
         "inline-block rounded-pill border-border-strong font-mono",
         sizes[size],
-        tone === "bright" ? "text-text" : "text-text-secondary",
-        tilt === "left" ? "hover:-rotate-2" : "",
-        tilt === "right" ? "hover:rotate-2" : "",
+        tones[tone],
+        tilt && tilts[tilt],
       ]
         .filter(Boolean)
         .join(" ")}
     >
-      {children}
+      {message}
     </span>
   );
 }

@@ -118,9 +118,13 @@ export function SiteNav() {
             {link.label}
           </Link>
         ))}
-        <IconButton href={cvUrl} icon={Download} color="accent" size="sm">
-          Download CV
-        </IconButton>
+        <IconButton
+          href={cvUrl}
+          icon={Download}
+          color="accent"
+          size="sm"
+          message="Download CV"
+        />
       </div>
     </nav>
   );

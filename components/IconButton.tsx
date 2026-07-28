@@ -1,7 +1,21 @@
 import Image, { type StaticImageData } from "next/image";
-import type { ButtonIconProps, IconButtonProps, IconSource } from "@/types/ui";
+import type {
+  ButtonIconProps,
+  IconButtonColor,
+  IconButtonProps,
+  IconButtonSize,
+  IconButtonVariant,
+  IconSource,
+} from "@/types/ui";
 
-const COLORS = {
+/**
+ * Annotated with Record so a colour added to IconButtonColor without an entry
+ * here is an error on this object, not further down at the lookup.
+ *
+ * Every variant carries a 1.5px border — transparent on the filled ones — so
+ * all three keep an identical box height regardless of colour.
+ */
+const COLORS: Record<IconButtonColor, string> = {
   accent:
     "border-transparent bg-accent text-on-accent hover:bg-accent-hover hover:text-on-accent",
   light:
@@ -10,7 +24,7 @@ const COLORS = {
     "border-border-strong bg-transparent text-text-secondary hover:border-accent hover:text-accent",
 };
 
-const SIZES = {
+const SIZES: Record<IconButtonSize, IconButtonVariant> = {
   sm: { shell: "gap-2 px-[22px] py-[9px] text-nav", icon: 18 },
   md: { shell: "gap-2 px-[26px] py-[13px] text-base", icon: 20 },
 };
@@ -56,7 +70,7 @@ function ButtonIcon({ icon, size, eager }: ButtonIconProps) {
 export function IconButton({
   href,
   icon,
-  children,
+  message,
   color = "accent",
   size = "md",
   eager = false,
@@ -74,10 +88,8 @@ export function IconButton({
       rel="noopener noreferrer"
       className={classes}
     >
-      <>
-        <ButtonIcon icon={icon} size={variant.icon} eager={eager} />
-        {children}
-      </>
+      <ButtonIcon icon={icon} size={variant.icon} eager={eager} />
+      {message}
     </a>
   );
 }
