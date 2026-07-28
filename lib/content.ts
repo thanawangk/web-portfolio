@@ -6,11 +6,12 @@ export const site = {
   colophon: "made with too many divs",
 };
 
-export const cvUrl = "https://drive.google.com/uc?export=download&id=FILE_ID";
+export const cvUrl =
+  "https://drive.google.com/file/d/1U3JUudqlVuSCopY2BBirLqe4xj7nuHjw/view";
 
 export const socialLinks = {
-  linkedin: "https://www.linkedin.com/",
-  github: "https://github.com/",
+  linkedin: "https://www.linkedin.com/in/thanawangk/",
+  github: "https://github.com/thanawangk",
 };
 
 export const navLinks = [
