@@ -51,19 +51,19 @@ export const experience = [
 
 export const skillGroups = [
   {
-    label: "speaks fluently",
+    label: "core expertise",
     emphasis: true,
-    items: ["TypeScript", "React", "Next.js", "Node.js", "CSS (yes, really)"],
+    items: ["JavaScript", "TypeScript", "React", "Next.js", "Tailwind"],
   },
   {
-    label: "gets along with",
+    label: "proficient in",
     emphasis: false,
-    items: ["GraphQL", "Tailwind", "Vitest", "Playwright", "Figma"],
+    items: ["Figma", "Vue.js", "Node.js", "SQL", "Jest"],
   },
   {
-    label: "weekend flings",
+    label: "familiar with",
     emphasis: false,
-    items: ["Rust", "Three.js", "Shaders"],
+    items: ["Python", "AWS", "Nest.js", "Claude"],
   },
 ];
 
