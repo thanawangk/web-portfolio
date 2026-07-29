@@ -1,4 +1,7 @@
+import Image from "next/image";
+import heroImg from "@/public/hero.png";
 import { Hero } from "@/components/Hero";
+import { MailButton } from "@/components/MailButton";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ProjectCard } from "@/components/ProjectCard";
@@ -11,7 +14,7 @@ import {
   experience,
   site,
   skillGroups,
-  socials,
+  socialLinks,
 } from "@/lib/content";
 
 export default function Home() {
@@ -21,12 +24,12 @@ export default function Home() {
       <main>
         <Hero />
 
-        <Section id="projects">
+        <Section id="projects" className="pt-22">
           <SectionLabel>{"// selected work"}</SectionLabel>
           <SectionHeading className="mb-[26px]">
-            Things I&rsquo;ve shipped
+            Things I've shipped
           </SectionHeading>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-[clamp(18px,2.5vw,26px)]">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(360px,1fr))] gap-[clamp(18px,2.5vw,26px)]">
             {projects.map((project, i) => (
               <ProjectCard
                 key={project.slug}
@@ -38,7 +41,7 @@ export default function Home() {
         </Section>
 
         <Section id="experience">
-          <SectionLabel>{"// the résumé bit"}</SectionLabel>
+          <SectionLabel>{"// career journey"}</SectionLabel>
           <SectionHeading className="mb-5">Experience</SectionHeading>
           <div className="flex flex-col border-t border-surface-alt pt-5">
             {experience.map((job, i) => (
@@ -80,12 +83,11 @@ export default function Home() {
                   {group.items.map((item, i) => (
                     <Chip
                       key={item}
+                      message={item}
                       size="skill"
                       tone={group.emphasis ? "bright" : "secondary"}
                       tilt={i % 2 === 0 ? "left" : "right"}
-                    >
-                      {item}
-                    </Chip>
+                    />
                   ))}
                 </div>
               </div>
@@ -95,33 +97,32 @@ export default function Home() {
 
         <Section id="about">
           <div className="mb-2.5 flex items-center gap-4">
-            <div
+            {/* Hide eyebrow icon */}
+            {/* <div
               aria-hidden="true"
-              className="h-[46px] w-[46px] rounded-full border-2 border-border-strong bg-surface bg-no-repeat"
+              className="h-[46px] w-[46px] rounded-full border-2 border-border-strong bg-accent bg-no-repeat"
               style={{
-                backgroundImage: "url('/hero-icon.png')",
-                backgroundSize: "315% auto",
-                backgroundPosition: "65% 61%",
+                backgroundImage: "url('/hero.png')",
+                backgroundSize: "230% auto",
+                backgroundPosition: "40% 20%",
               }}
-            />
+            /> */}
             <p className="font-mono text-label text-accent">
-              {"// the human behind the cartoon"}
+              {"// human.exe is still running"}
             </p>
           </div>
           <SectionHeading className="mb-[22px]">About me</SectionHeading>
           <div className="flex flex-wrap items-start gap-7">
             <div className="min-w-[280px] flex-[2_1_420px]">
               <p className="mb-3.5 max-w-[600px] text-body leading-relaxed text-text-secondary">
-                I&rsquo;m Bank Thanawat, a frontend-leaning software engineer
-                based in Bangkok. I care about the unglamorous stuff — loading
-                states, keyboard nav, that 80ms where the button does nothing —
-                because that&rsquo;s where &ldquo;fine&rdquo; becomes
-                &ldquo;wow&rdquo;.
+                I'm a frontend-leaning software engineer from Thailand, with 4
+                years of experience in design and development. I turn ideas into
+                code from thoughtful interactions to scalable systems.
               </p>
               <p className="max-w-[600px] text-body leading-relaxed text-text-secondary">
-                When I&rsquo;m not shipping, I&rsquo;m redrawing this little
-                guy&rsquo;s face, over-engineering my espresso, or explaining to
-                relatives that no, I can&rsquo;t fix their printer. (I can.)
+                In life as in code, I keep exploring new things, learning from
+                what I discover while becoming a little better along the way
+                (still learning).
               </p>
             </div>
             <Panel
@@ -135,35 +136,54 @@ export default function Home() {
 
         <section
           id="contact"
-          className="mx-auto max-w-(--page-max-width) px-(--page-pad-x) pt-[clamp(48px,7vw,68px)] pb-(--section-pad-y) text-center"
+          className="mx-auto max-w-(--page-max-width) px-(--page-pad-x) pt-[clamp(48px,7vw,68px)] pb-[clamp(44px,6.5vw,64px)]"
         >
-          <h2 className="mb-2.5 -rotate-2 font-hand text-hand-lg font-normal text-accent">
-            Let&rsquo;s build something.
-          </h2>
-          <p className="mx-auto mb-6 max-w-[420px] text-[clamp(15px,2.2vw,18px)] leading-body text-text-muted">
-            Hiring? Have a weird idea? Just want to poke the cartoon? My inbox
-            is open.
-          </p>
-          <a
-            href={`mailto:${site.email}`}
-            className="inline-block rounded-pill bg-accent px-9 py-4 text-[19px] font-bold text-on-accent transition-transform duration-(--duration-fast) ease-spring hover:-translate-y-[3px] hover:-rotate-[1.5deg] hover:bg-accent-hover hover:text-on-accent"
-          >
-            {site.email}
-          </a>
-          <div className="mt-[22px] flex justify-center gap-7 font-mono text-label">
-            {socials.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                className="text-text-secondary transition-colors duration-(--duration-fast) hover:text-accent"
-              >
-                {s.label}
-              </a>
-            ))}
+          <div className="relative mx-auto max-w-[920px] rounded-[36px] border-[3px] border-border-strong bg-surface px-[clamp(24px,5vw,48px)] pt-[clamp(44px,6.5vw,72px)] pb-[2px] text-center [box-shadow:12px_12px_0_var(--color-accent)] [transition:translate_0.3s_cubic-bezier(0.34,1.56,0.64,1),scale_0.3s_cubic-bezier(0.34,1.56,0.64,1),box-shadow_0.3s_cubic-bezier(0.34,1.56,0.64,1),border-color_0.3s_ease] hover:translate-x-[-6px] hover:translate-y-[-10px] hover:scale-[1.015] hover:border-accent hover:[box-shadow:22px_26px_0_var(--color-accent)]">
+            <div className="absolute -top-[18px] left-1/2 -translate-x-1/2 rounded-full border-[3px] border-on-accent bg-accent px-4 py-[7px] font-mono text-[12.5px] font-bold tracking-[0.1em] whitespace-nowrap text-on-accent">
+              GET IN TOUCH ✦
+            </div>
+
+            <div className="relative ">
+              <p className="mb-6 font-mono text-[clamp(12px,1.6vw,15px)] font-bold tracking-[0.08em] text-accent">
+                Hiring? Contact me? My inbox is open.
+              </p>
+
+              <h2 className="mb-[30px] text-contact-card leading-[0.95] font-bold tracking-[-0.03em] text-text">
+                Let's build
+                <br />
+                with purpose.
+              </h2>
+
+              <MailButton email={site.email} className="mb-8" />
+
+              <div className="flex flex-wrap justify-center gap-3 font-mono text-[14px]">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`rounded-full border-2 border-dashed border-border-strong px-4 py-[7px] text-text-secondary  hover:border-accent hover:text-accent`}
+                  >
+                    {social.label}
+                  </a>
+                ))}
+              </div>
+
+              <div className="relative mx-auto mt-12 md:mt-16 lg:mt-20 h-[68px] w-[180px] max-w-full overflow-hidden">
+                <Image
+                  src={heroImg}
+                  alt=""
+                  aria-hidden="true"
+                  sizes="180px"
+                  className="pointer-events-none absolute top-[-20px] left-0 h-auto w-[180px] max-w-none"
+                />
+              </div>
+            </div>
           </div>
         </section>
       </main>
-      <SiteFooter peek />
+      <SiteFooter />
     </>
   );
 }

@@ -5,6 +5,7 @@
   --color-bg: #18161a;
   --color-surface: #211f24;
   --color-surface-alt: #26232a;
+  --color-surface-maintenance: #ffd83c8f;
   --color-border: #2c2931;
   --color-border-strong: #33303a;
   --color-border-accent: #3a3640;
@@ -34,6 +35,7 @@
   --text-chip: 12px;
   --text-hand-lg: clamp(38px, 6.5vw, 60px);
   --text-hand: 26px;
+  --text-contact-card: clamp(30px, 4.5vw, 50px);
 
   --leading-tight: 1.04;
   --leading-body: 1.6;
@@ -43,6 +45,7 @@
   /* Radii */
   --radius-card: 20px;
   --radius-panel: 18px;
+  --radius-nav: 18px;
   --radius-pill: 999px;
 
   /* Motion */
@@ -109,7 +112,7 @@
 :root {
   --section-pad-y: clamp(44px, 6.5vw, 64px);
   --page-pad-x: clamp(20px, 5vw, 48px);
-  --page-max-width: 1280px;
+  --page-max-width: 1300px;
 
   --glass-bg: rgba(38, 35, 42, 0.55);
   --glass-bg-menu: rgba(38, 35, 42, 0.92);
@@ -159,7 +162,7 @@
   /* Diagonal-stripe placeholder used behind project screenshots. */
   background: repeating-linear-gradient(
     45deg,
-    var(--color-surface-alt) 0 12px,
+    var(--color-surface-maintenance) 0 12px,
     var(--color-surface) 12px 24px
   );
 }

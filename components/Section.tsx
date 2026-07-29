@@ -11,7 +11,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`mx-auto max-w-(--page-max-width) px-(--page-pad-x) pt-(--section-pad-y) pb-5 ${className}`}
+      className={`mx-auto max-w-(--page-max-width) px-(--page-pad-x) py-(--section-pad-y) pb-8 ${className}`}
     >
       {children}
     </section>

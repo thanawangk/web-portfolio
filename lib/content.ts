@@ -1,71 +1,81 @@
 export const site = {
-  wordmark: "bank.dev",
-  email: "hello@bank.dev",
+  wordmark: "bankthanawat.dev",
+  email: "thanawat.wangk@outlook.com",
   owner: "Bank Thanawat",
   year: 2026,
   colophon: "made with too many divs",
 };
 
+export const cvUrl =
+  "https://drive.google.com/file/d/1U3JUudqlVuSCopY2BBirLqe4xj7nuHjw/view";
+
 export const navLinks = [
   { href: "/#projects", label: "Projects" },
   { href: "/#experience", label: "Experience" },
   { href: "/#about", label: "About" },
+  // { href: "/#contact", label: "Contact" },
 ];
 
-export const socials = [
-  { label: "github", href: "#" },
-  { label: "linkedin", href: "#" },
-  { label: "twitter/x", href: "#" },
+export const socialLinks = [
+  { label: "LinkedIn", link: "https://www.linkedin.com/in/thanawangk/" },
+  { label: "GitHub", link: "https://github.com/thanawangk" },
+  { label: "Twitter", link: "#" },
 ];
 
 export const experience = [
   {
-    period: "2024 — now",
-    role: "Senior Frontend Engineer · Placeholder Co",
+    period: "2025 — now",
+    role: "Software Engineer · PwC Thailand",
     description:
-      "Own the design system used by 6 product teams. Cut bundle size 38% and nobody noticed, which is the point.",
+      "Built complex banking workflows, working across teams to deliver scalable and reliable web solutions.",
   },
   {
-    period: "2021 — 2024",
-    role: "Frontend Engineer · Some Startup",
+    period: "2023 — 2025",
+    role: "Associate Transformational Consultant · NTT DATA (Thailand)",
     description:
-      "Employee #7. Built the web app from zero to 200k users, plus the internal tools everyone secretly liked more.",
+      "Designed and developed a web application for contact center data management and reporting support multiple business units.",
   },
   {
-    period: "2019 — 2021",
-    role: "Software Engineer · An Agency",
+    period: "2022 — 2023",
+    role: "Associate Software Application Development Engineer · NTT (Thailand)",
     description:
-      "Shipped 20+ client sites. Learned that “can you make the logo bigger” is a lifestyle, not a request.",
+      "Delivered new features for evolving business needs, optimizing frontend performance with large datasets.",
+  },
+  {
+    period: "2021 — 2021",
+    role: "Frontend Developer · Faculty of Engineering at Sriracha",
+    description:
+      "Web development for document reservation with responsive design and role-based access control.",
   },
 ];
 
 export const skillGroups = [
   {
-    label: "speaks fluently",
+    label: "core expertise",
     emphasis: true,
-    items: ["TypeScript", "React", "Next.js", "Node.js", "CSS (yes, really)"],
+    items: ["TypeScript", "React", "Next.js", "Node.js"],
   },
   {
-    label: "gets along with",
+    label: "proficient in",
     emphasis: false,
-    items: ["GraphQL", "Tailwind", "Vitest", "Playwright", "Figma"],
+    items: ["Figma", "Tailwind", "Jest", "Vue.js", "SQL"],
   },
   {
-    label: "weekend flings",
+    label: "familiar with",
     emphasis: false,
-    items: ["Rust", "Three.js", "Shaders"],
+    items: ["Python", "AWS", "Nest.js", "Claude"],
   },
 ];
 
 export const currently = [
-  "obsessed_with: view transitions",
-  "reading: “Refactoring UI”, again",
-  "coffee_count: 3 (it is 10am)",
+  "obsessed_with: passion projects",
+  "exploring: “Assistive AI”, indeed",
+  "thaitea_count: 1 (it is 10am)",
   "open_to: full-time roles",
 ];
 
 /** Speech-bubble lines the mascot fires off when poked. */
-export const quips = [
+export const bubbles = [
   "100 on Lighthouse?!",
   "He centered the div?!",
   "Zero layout shift?!",
