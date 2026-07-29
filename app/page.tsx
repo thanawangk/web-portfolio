@@ -1,3 +1,5 @@
+import Image from "next/image";
+import heroImg from "@/public/hero.png";
 import { Hero } from "@/components/Hero";
 import { MailButton } from "@/components/MailButton";
 import { SiteNav } from "@/components/SiteNav";
@@ -22,7 +24,7 @@ export default function Home() {
       <main>
         <Hero />
 
-        <Section id="projects">
+        <Section id="projects" className="pt-22">
           <SectionLabel>{"// selected work"}</SectionLabel>
           <SectionHeading className="mb-[26px]">
             Things I've shipped
@@ -100,9 +102,9 @@ export default function Home() {
               aria-hidden="true"
               className="h-[46px] w-[46px] rounded-full border-2 border-border-strong bg-accent bg-no-repeat"
               style={{
-                backgroundImage: "url('/hero-icon.png')",
-                backgroundSize: "315% auto",
-                backgroundPosition: "65% 61%",
+                backgroundImage: "url('/hero.png')",
+                backgroundSize: "230% auto",
+                backgroundPosition: "40% 20%",
               }}
             /> */}
             <p className="font-mono text-label text-accent">
@@ -136,7 +138,7 @@ export default function Home() {
           id="contact"
           className="mx-auto max-w-(--page-max-width) px-(--page-pad-x) pt-[clamp(48px,7vw,68px)] pb-[clamp(44px,6.5vw,64px)]"
         >
-          <div className="relative mx-auto max-w-[920px] rounded-[36px] border-[3px] border-border-strong bg-surface px-[clamp(24px,5vw,48px)] py-[clamp(44px,6.5vw,72px)] text-center [box-shadow:12px_12px_0_var(--color-accent)] [transition:translate_0.3s_cubic-bezier(0.34,1.56,0.64,1),scale_0.3s_cubic-bezier(0.34,1.56,0.64,1),box-shadow_0.3s_cubic-bezier(0.34,1.56,0.64,1),border-color_0.3s_ease] hover:translate-x-[-6px] hover:translate-y-[-10px] hover:scale-[1.015] hover:border-accent hover:[box-shadow:22px_26px_0_var(--color-accent)]">
+          <div className="relative mx-auto max-w-[920px] rounded-[36px] border-[3px] border-border-strong bg-surface px-[clamp(24px,5vw,48px)] pt-[clamp(44px,6.5vw,72px)] pb-[2px] text-center [box-shadow:12px_12px_0_var(--color-accent)] [transition:translate_0.3s_cubic-bezier(0.34,1.56,0.64,1),scale_0.3s_cubic-bezier(0.34,1.56,0.64,1),box-shadow_0.3s_cubic-bezier(0.34,1.56,0.64,1),border-color_0.3s_ease] hover:translate-x-[-6px] hover:translate-y-[-10px] hover:scale-[1.015] hover:border-accent hover:[box-shadow:22px_26px_0_var(--color-accent)]">
             <div className="absolute -top-[18px] left-1/2 -translate-x-1/2 rounded-full border-[3px] border-on-accent bg-accent px-4 py-[7px] font-mono text-[12.5px] font-bold tracking-[0.1em] whitespace-nowrap text-on-accent">
               GET IN TOUCH ✦
             </div>
@@ -167,11 +169,21 @@ export default function Home() {
                   </a>
                 ))}
               </div>
+
+              <div className="relative mx-auto mt-24 h-[68px] w-[180px] max-w-full overflow-hidden">
+                <Image
+                  src={heroImg}
+                  alt=""
+                  aria-hidden="true"
+                  sizes="180px"
+                  className="pointer-events-none absolute top-[-20px] left-0 h-auto w-[180px] max-w-none"
+                />
+              </div>
             </div>
           </div>
         </section>
       </main>
-      <SiteFooter peek />
+      <SiteFooter />
     </>
   );
 }

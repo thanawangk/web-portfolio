@@ -50,7 +50,7 @@ export function SiteNav() {
       className="fixed inset-x-0 z-50 mx-auto box-border flex flex-wrap items-center justify-between gap-y-2 border border-solid"
       style={{
         top: scrolled ? "18px" : "0",
-        width: scrolled ? "min(1280px, calc(100% - 32px))" : "100%",
+        width: scrolled ? "min(1220px, calc(100% - 32px))" : "100%",
         padding: scrolled
           ? "12px clamp(16px, 3vw, 30px)"
           : "clamp(12px, 3vw, 18px) clamp(16px, 5vw, 48px)",
