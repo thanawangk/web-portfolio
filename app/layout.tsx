@@ -21,9 +21,9 @@ const caveat = Caveat({
 });
 
 const SITE_URL = "https://bankthanawat.vercel.app/";
-const TITLE = "Thanawat Wangkhem – Web Developer";
+const TITLE = "Thanawat Wangkhem – Software Engineer";
 const DESCRIPTION =
-  "Developer from Thailand, who does a bit of web development with a passion for great design.";
+  "Software Engineer who does a bit of web development with a passion for great design.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

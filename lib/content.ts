@@ -17,15 +17,15 @@ export const navLinks = [
 ];
 
 export const socialLinks = [
-  { label: "LinkedIn", link: "https://github.com/thanawangk" },
-  { label: "GitHub", link: "https://www.linkedin.com/in/thanawangk/" },
+  { label: "LinkedIn", link: "https://www.linkedin.com/in/thanawangk/" },
+  { label: "GitHub", link: "https://github.com/thanawangk" },
   { label: "Twitter", link: "#" },
 ];
 
 export const experience = [
   {
     period: "2025 — now",
-    role: "Frontend Developer · PwC Thailand",
+    role: "Software Engineer · PwC Thailand",
     description:
       "Built complex banking workflows, working across teams to deliver scalable and reliable web solutions.",
   },
@@ -53,12 +53,12 @@ export const skillGroups = [
   {
     label: "core expertise",
     emphasis: true,
-    items: ["JavaScript", "TypeScript", "React", "Next.js", "Tailwind"],
+    items: ["TypeScript", "React", "Next.js", "Node.js"],
   },
   {
     label: "proficient in",
     emphasis: false,
-    items: ["Figma", "Vue.js", "Node.js", "SQL", "Jest"],
+    items: ["Figma", "Tailwind", "Jest", "Vue.js", "SQL"],
   },
   {
     label: "familiar with",
@@ -68,9 +68,9 @@ export const skillGroups = [
 ];
 
 export const currently = [
-  "obsessed_with: view transitions",
-  "reading: “Refactoring UI”, again",
-  "coffee_count: 3 (it is 10am)",
+  "obsessed_with: passion projects",
+  "exploring: “Assistive AI”, indeed",
+  "thaitea_count: 1 (it is 10am)",
   "open_to: full-time roles",
 ];
 

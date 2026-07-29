@@ -95,32 +95,32 @@ export default function Home() {
 
         <Section id="about">
           <div className="mb-2.5 flex items-center gap-4">
-            <div
+            {/* Hide eyebrow icon */}
+            {/* <div
               aria-hidden="true"
-              className="h-[46px] w-[46px] rounded-full border-2 border-border-strong bg-surface bg-no-repeat"
+              className="h-[46px] w-[46px] rounded-full border-2 border-border-strong bg-accent bg-no-repeat"
               style={{
                 backgroundImage: "url('/hero-icon.png')",
                 backgroundSize: "315% auto",
                 backgroundPosition: "65% 61%",
               }}
-            />
+            /> */}
             <p className="font-mono text-label text-accent">
-              {"// the human behind the cartoon"}
+              {"// human.exe is still running"}
             </p>
           </div>
           <SectionHeading className="mb-[22px]">About me</SectionHeading>
           <div className="flex flex-wrap items-start gap-7">
             <div className="min-w-[280px] flex-[2_1_420px]">
               <p className="mb-3.5 max-w-[600px] text-body leading-relaxed text-text-secondary">
-                I'm Bank Thanawat, a frontend-leaning software engineer based in
-                Bangkok. I care about the unglamorous stuff — loading states,
-                keyboard nav, that 80ms where the button does nothing — because
-                that's where "fine" becomes "wow".
+                I'm a frontend-leaning software engineer from Thailand, with 4
+                years of experience in design and development. I turn ideas into
+                code from thoughtful interactions to scalable systems.
               </p>
               <p className="max-w-[600px] text-body leading-relaxed text-text-secondary">
-                When I'm not shipping, I'm redrawing this little guy's face,
-                over-engineering my espresso, or explaining to relatives that
-                no, I can't fix their printer. (I can.)
+                In life as in code, I keep exploring new things, learning from
+                what I discover while becoming a little better along the way
+                (still learning).
               </p>
             </div>
             <Panel

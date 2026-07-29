@@ -50,7 +50,7 @@ export function Hero() {
           </span>
         </h1>
         <p className="mb-6 max-w-[440px] text-body-lg leading-body text-text-muted">
-          Developer from Thailand, who does a bit of web development with a
+          Software Engineer who does a bit of web development with a
           passion for great design.
         </p>
         <div className="flex flex-wrap items-center gap-4">
