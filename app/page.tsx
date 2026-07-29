@@ -136,7 +136,7 @@ export default function Home() {
 
         <section
           id="contact"
-          className="mx-auto max-w-(--page-max-width) px-(--page-pad-x) pt-[clamp(48px,7vw,68px)] pb-[clamp(44px,6.5vw,64px)]"
+          className="mx-auto max-w-(--page-max-width) px-(--page-pad-x) pt-[clamp(48px,7vw,64px)] pb-[clamp(44px,6.5vw,60px)]"
         >
           <div className="relative mx-auto max-w-[920px] rounded-[36px] border-[3px] border-border-strong bg-surface px-[clamp(24px,5vw,48px)] pt-[clamp(44px,6.5vw,72px)] pb-[2px] text-center [box-shadow:12px_12px_0_var(--color-accent)] [transition:translate_0.3s_cubic-bezier(0.34,1.56,0.64,1),scale_0.3s_cubic-bezier(0.34,1.56,0.64,1),box-shadow_0.3s_cubic-bezier(0.34,1.56,0.64,1),border-color_0.3s_ease] hover:translate-x-[-6px] hover:translate-y-[-10px] hover:scale-[1.015] hover:border-accent hover:[box-shadow:22px_26px_0_var(--color-accent)]">
             <div className="absolute -top-[18px] left-1/2 -translate-x-1/2 rounded-full border-[3px] border-on-accent bg-accent px-4 py-[7px] font-mono text-[12.5px] font-bold tracking-[0.1em] whitespace-nowrap text-on-accent">
@@ -148,7 +148,7 @@ export default function Home() {
                 Hiring? Contact me? My inbox is open.
               </p>
 
-              <h2 className="mb-[30px] text-contact-card leading-[0.95] font-bold tracking-[-0.03em] text-text">
+              <h2 className="mb-[36px] text-contact-card leading-[0.95] font-bold tracking-[-0.03em] text-text">
                 Let's build
                 <br />
                 with purpose.
@@ -156,21 +156,7 @@ export default function Home() {
 
               <MailButton email={site.email} className="mb-8" />
 
-              <div className="flex flex-wrap justify-center gap-3 font-mono text-[14px]">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`rounded-full border-2 border-dashed border-border-strong px-4 py-[7px] text-text-secondary  hover:border-accent hover:text-accent`}
-                  >
-                    {social.label}
-                  </a>
-                ))}
-              </div>
-
-              <div className="relative mx-auto mt-12 md:mt-16 lg:mt-20 h-[68px] w-[180px] max-w-full overflow-hidden">
+              <div className="relative mx-auto mt-8 md:mt-12 lg:mt-12 h-[68px] w-[180px] max-w-full overflow-hidden">
                 <Image
                   src={heroImg}
                   alt=""
