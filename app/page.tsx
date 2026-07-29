@@ -134,26 +134,40 @@ export default function Home() {
 
         <section
           id="contact"
-          className="mx-auto max-w-(--page-max-width) px-(--page-pad-x) pt-[clamp(48px,7vw,68px)] pb-(--section-pad-y) text-center"
+          className="mx-auto max-w-(--page-max-width) px-(--page-pad-x) pt-[clamp(48px,7vw,68px)] pb-[clamp(44px,6.5vw,64px)]"
         >
-          <h2 className="mb-2.5 -rotate-2 font-hand text-hand-lg font-normal text-accent">
-            Let's build something.
-          </h2>
-          <p className="mx-auto mb-6 max-w-[420px] text-[clamp(15px,2.2vw,18px)] leading-body text-text-muted">
-            Hiring? Have a weird idea? Just want to poke the cartoon? My inbox
-            is open.
-          </p>
-          <MailButton email={site.email} />
-          <div className="mt-[22px] flex justify-center gap-7 font-mono text-label">
-            {socialLinks.map((s) => (
-              <a
-                key={s.label}
-                href={s.link}
-                className="text-text-secondary transition-colors duration-(--duration-fast) hover:text-accent"
-              >
-                {s.label}
-              </a>
-            ))}
+          <div className="relative mx-auto max-w-[920px] rounded-[36px] border-[3px] border-border-strong bg-surface px-[clamp(24px,5vw,48px)] py-[clamp(44px,6.5vw,72px)] text-center [box-shadow:12px_12px_0_var(--color-accent)] [transition:translate_0.3s_cubic-bezier(0.34,1.56,0.64,1),scale_0.3s_cubic-bezier(0.34,1.56,0.64,1),box-shadow_0.3s_cubic-bezier(0.34,1.56,0.64,1),border-color_0.3s_ease] hover:translate-x-[-6px] hover:translate-y-[-10px] hover:scale-[1.015] hover:border-accent hover:[box-shadow:22px_26px_0_var(--color-accent)]">
+            <div className="absolute -top-[18px] left-1/2 -translate-x-1/2 rounded-full border-[3px] border-on-accent bg-accent px-4 py-[7px] font-mono text-[12.5px] font-bold tracking-[0.1em] whitespace-nowrap text-on-accent">
+              GET IN TOUCH ✦
+            </div>
+
+            <div className="relative ">
+              <p className="mb-6 font-mono text-[clamp(12px,1.6vw,15px)] font-bold tracking-[0.08em] text-accent">
+                Hiring? Have a weird idea? My inbox is open.
+              </p>
+
+              <h2 className="mb-[26px] text-[clamp(40px,8.5vw,88px)] leading-[0.95] font-bold tracking-[-0.03em] text-text">
+                Let&rsquo;s build
+                <br />
+                something.
+              </h2>
+
+              <MailButton email={site.email} className="mb-7" />
+
+              <div className="flex flex-wrap justify-center gap-3 font-mono text-[14px]">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`rounded-full border-2 border-dashed border-border-strong px-4 py-[7px] text-text-secondary  hover:border-accent hover:text-accent`}
+                  >
+                    {social.label}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       </main>
