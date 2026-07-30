@@ -8,13 +8,6 @@ import type {
   IconSource,
 } from "@/types/ui";
 
-/**
- * Annotated with Record so a colour added to IconButtonColor without an entry
- * here is an error on this object, not further down at the lookup.
- *
- * Every variant carries a 1.5px border — transparent on the filled ones — so
- * all three keep an identical box height regardless of colour.
- */
 const COLORS: Record<IconButtonColor, string> = {
   accent:
     "border-transparent bg-accent text-on-accent hover:bg-accent-hover hover:text-on-accent",
@@ -29,11 +22,6 @@ const SIZES: Record<IconButtonSize, IconButtonVariant> = {
   md: { shell: "gap-2 px-[26px] py-[13px] text-base", icon: 20 },
 };
 
-/**
- * Shared lift-and-tilt. Written as an arbitrary property with literal curves:
- * Tailwind drops `cqw`-style units and tree-shakes var(--ease-spring) when no
- * utility references it, so neither survives inside arbitrary *values*.
- */
 const TRANSITION =
   "[transition:translate_0.25s_cubic-bezier(0.34,1.56,0.64,1),rotate_0.25s_cubic-bezier(0.34,1.56,0.64,1),background-color_0.25s_ease,border-color_0.25s_ease,color_0.25s_ease]";
 

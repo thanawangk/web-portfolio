@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { IconButton } from "@/components/IconButton";
 import heroImg from "@/public/hero.png";
-import githubIcon from "@/public/images/github.png";
 import linkedinIcon from "@/public/images/linkedin.png";
+import githubIcon from "@/public/images/github.png";
 import { bubbles, socialLinks } from "@/lib/content";
 
 export function Hero() {
@@ -50,8 +50,8 @@ export function Hero() {
           </span>
         </h1>
         <p className="mb-6 max-w-[440px] text-body-lg leading-body text-text-muted">
-          Software Engineer who does a bit of web development with a
-          passion for great design.
+          Software Engineer who does a bit of web development with a passion for
+          great design.
         </p>
         <div className="flex flex-wrap items-center gap-4">
           <IconButton
