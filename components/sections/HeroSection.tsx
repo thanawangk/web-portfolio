@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { IconButton } from "@/components/IconButton";
+import { IconButton } from "@/components/ui/IconButton";
 import heroImg from "@/public/hero.png";
 import { bubbles, socialLinks } from "@/lib/content";
 
-export function Hero() {
+export function HeroSection() {
   const charRef = useRef<HTMLDivElement>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [bubble, setBubble] = useState<string | null>(null);

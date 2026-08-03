@@ -1,4 +1,4 @@
-import { GitHubIcon, LinkedInIcon } from "@/components/BrandIcons";
+import { GitHubIcon, LinkedInIcon } from "@/components/icons/BrandIcons";
 import type { SocialLink } from "@/types/content";
 
 export const site = {

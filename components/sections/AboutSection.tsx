@@ -1,5 +1,5 @@
-import { Panel, PanelList } from "@/components/Panel";
-import { Section, SectionHeading, SectionLabel } from "@/components/Section";
+import { Panel, PanelList } from "@/components/ui/Panel";
+import { Section, SectionHeading, SectionLabel } from "@/components/ui/Section";
 import { currently } from "@/lib/content";
 
 export function AboutSection() {

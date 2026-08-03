@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Chip } from "@/components/Chip";
-import { ScreenshotSlot } from "@/components/ScreenshotSlot";
+import { Chip } from "@/components/ui/Chip";
+import { ScreenshotSlot } from "@/components/ui/ScreenshotSlot";
 import type { ProjectCardProps, Tilt } from "@/types/ui";
 
 const tilts: Record<Tilt, string> = {

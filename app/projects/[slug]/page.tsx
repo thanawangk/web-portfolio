@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Chip } from "@/components/Chip";
-import { Panel, PanelList } from "@/components/Panel";
-import { ScreenshotSlot } from "@/components/ScreenshotSlot";
-import { SiteFooter } from "@/components/SiteFooter";
+import { Chip } from "@/components/ui/Chip";
+import { Panel, PanelList } from "@/components/ui/Panel";
+import { ScreenshotSlot } from "@/components/ui/ScreenshotSlot";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import { getNeighbours, getProject, projects } from "@/lib/projects";
 import { site } from "@/lib/content";
 
@@ -80,7 +80,10 @@ export default async function ProjectPage({ params }: Params) {
             </p>
           </div>
 
-          <Panel title="at a glance" className="min-w-[220px] grow shrink basis-[240px]">
+          <Panel
+            title="at a glance"
+            className="min-w-[220px] grow shrink basis-[240px]"
+          >
             <PanelList
               items={[
                 `role: ${project.role}`,

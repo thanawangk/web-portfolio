@@ -5,8 +5,8 @@ import type {
   IconButtonProps,
   IconButtonSize,
   IconButtonVariant,
-  IconSource,
 } from "@/types/ui";
+import type { IconSource } from "@/types/icon";
 
 const COLORS: Record<IconButtonColor, string> = {
   accent:

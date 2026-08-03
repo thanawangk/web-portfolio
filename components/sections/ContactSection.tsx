@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { MailButton } from "@/components/MailButton";
+import { MailButton } from "@/components/ui/MailButton";
 import { site } from "@/lib/content";
 import heroImg from "@/public/hero.png";
 

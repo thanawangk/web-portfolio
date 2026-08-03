@@ -1,21 +1,11 @@
-import type { StaticImageData } from "next/image";
-import type { ComponentType } from "react";
 import type { Project } from "@/types/content";
+import type { IconSource } from "@/types/icon";
 
 /**
  * Union and derived types stay as `type` — an interface cannot express a
  * union, and object shapes stay as `interface` because TypeScript caches
  * interfaces as a single flat type.
  */
-
-export type IconComponent = ComponentType<{
-  size?: number;
-  strokeWidth?: number;
-  className?: string;
-}>;
-
-/** A raster in /public, a static import, or an SVG icon component. */
-export type IconSource = string | StaticImageData | IconComponent;
 
 export type IconButtonColor = "accent" | "light" | "outline";
 export type IconButtonSize = "sm" | "md";

@@ -1,5 +1,5 @@
-import { Chip } from "@/components/Chip";
-import { Section, SectionHeading, SectionLabel } from "@/components/Section";
+import { Chip } from "@/components/ui/Chip";
+import { Section, SectionHeading, SectionLabel } from "@/components/ui/Section";
 import { skillGroups } from "@/lib/content";
 
 export function SkillsSection() {

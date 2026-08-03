@@ -1,4 +1,4 @@
-import { Section, SectionHeading, SectionLabel } from "@/components/Section";
+import { Section, SectionHeading, SectionLabel } from "@/components/ui/Section";
 import { experience } from "@/lib/content";
 
 export function ExperienceSection() {

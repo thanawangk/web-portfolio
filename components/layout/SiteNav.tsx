@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { Download } from "lucide-react";
 import { useEffect, useState } from "react";
-import { IconButton } from "@/components/IconButton";
-import { IconMark } from "@/components/IconMark";
+import { IconButton } from "@/components/ui/IconButton";
+import { IconMark } from "@/components/icons/IconMark";
 import { cvUrl, navLinks, site } from "@/lib/content";
 
 /** Width burger collapses into an inline row (the `nav:` variant). */

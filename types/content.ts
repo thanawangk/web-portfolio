@@ -1,4 +1,4 @@
-import type { IconComponent } from "@/types/ui";
+import type { IconComponent } from "@/types/icon";
 
 export interface SocialLink {
   label: string;
