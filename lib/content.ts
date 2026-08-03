@@ -1,9 +1,15 @@
+import { GitHubIcon, LinkedInIcon } from "@/components/icons/BrandIcons";
+import type { SocialLink } from "@/types/content.types";
+
 export const site = {
-  wordmark: "bankthanawat.dev",
+  name: "bankthanawat.dev",
+  title: "Thanawat Wangkhem – Software Engineer",
+  url: "https://bankthanawat.vercel.app/",
+  description:
+    "Software Engineer who does a bit of web development with a passion for great design.",
   email: "thanawat.wangk@outlook.com",
-  owner: "Bank Thanawat",
+  owner: "Thanawat Wangkhem",
   year: 2026,
-  colophon: "made with too many divs",
 };
 
 export const cvUrl =
@@ -16,10 +22,17 @@ export const navLinks = [
   // { href: "/#contact", label: "Contact" },
 ];
 
-export const socialLinks = [
-  { label: "LinkedIn", link: "https://www.linkedin.com/in/thanawangk/" },
-  { label: "GitHub", link: "https://github.com/thanawangk" },
-  { label: "Twitter", link: "#" },
+export const socialLinks: SocialLink[] = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/thanawangk/",
+    icon: LinkedInIcon,
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/thanawangk",
+    icon: GitHubIcon,
+  },
 ];
 
 export const experience = [

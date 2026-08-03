@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, JetBrains_Mono, Caveat } from "next/font/google";
+import { site } from "@/lib/content";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -20,23 +21,17 @@ const caveat = Caveat({
   weight: ["600", "700"],
 });
 
-const SITE_URL = "https://bankthanawat.vercel.app/";
-const TITLE = "Thanawat Wangkhem – Software Engineer";
-const DESCRIPTION =
-  "Software Engineer who does a bit of web development with a passion for great design.";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: { default: TITLE, template: "%s — bankthanawat.dev" },
-  description: DESCRIPTION,
-  applicationName: "bankthanawat.dev",
-  authors: [{ name: "Bank Thanawat", url: SITE_URL }],
+  metadataBase: new URL(site.url),
+  title: { default: site.title, template: `%s — ${site.name}` },
+  description: site.description,
+  applicationName: site.name,
   creator: "Bank Thanawat",
   openGraph: {
     type: "website",
-    siteName: "bankthanawat.dev",
+    siteName: site.name,
     url: "/",
-    title: TITLE,
+    title: site.title,
     description: "I make the web bit cooler.",
     images: ["/hero.png"],
   },

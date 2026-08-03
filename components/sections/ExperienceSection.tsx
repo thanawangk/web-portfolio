@@ -1,0 +1,29 @@
+import { Section, SectionHeading, SectionLabel } from "@/components/ui/Section";
+import { experience } from "@/lib/content";
+
+export function ExperienceSection() {
+  return (
+    <Section id="experience">
+      <SectionLabel>{"// career journey"}</SectionLabel>
+      <SectionHeading className="mb-5">Experience</SectionHeading>
+      <div className="flex flex-col border-t border-surface-alt pt-5">
+        {experience.map((job) => (
+          <div
+            key={job.role}
+            className="flex flex-wrap gap-x-[30px] gap-y-1.5 not-last:mb-3 not-last:border-b not-last:border-surface-alt not-last:pb-[18px]"
+          >
+            <div className="grow-0 shrink-0 basis-[140px] pt-[3px] font-mono text-label text-text-faint">
+              {job.period}
+            </div>
+            <div className="min-w-[240px] grow shrink basis-[320px]">
+              <h3 className="mb-1.5 text-xl font-bold">{job.role}</h3>
+              <p className="max-w-[640px] text-[15.5px] leading-body text-text-muted">
+                {job.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Section>
+  );
+}

@@ -3,21 +3,39 @@
 import Link from "next/link";
 import { Download } from "lucide-react";
 import { useEffect, useState } from "react";
-import { IconButton } from "@/components/IconButton";
-import { IconMark } from "@/components/IconMark";
+import { IconButton } from "@/components/ui/IconButton";
+import { IconMark } from "@/components/icons/IconMark";
+import { cn } from "@/lib/cn";
 import { cvUrl, navLinks, site } from "@/lib/content";
 
-/** Width burger collapses into an inline row (the `nav:` variant). */
-const NAV_BREAKPOINT = 720;
+const navBreakpoint = 720;
 
-const MORPH =
+const morphedProperties =
   "top, width, padding, border-radius, background, backdrop-filter, border-color, box-shadow";
+
+type NavState = "top" | "scrolled";
+
+interface NavStateStyles {
+  bar: string;
+  menu: string;
+}
+
+const navStyles: Record<NavState, NavStateStyles> = {
+  top: {
+    bar: "px-4 py-3 md:px-8 md:py-4 lg:px-12 lg:py-4.5",
+    menu: "right-4 md:right-8 lg:right-12",
+  },
+  scrolled: {
+    bar: "px-4 py-3 md:px-6 lg:px-[30px]",
+    menu: "right-0",
+  },
+};
 
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Turn nav into "scrolled" state when the user scroll down a bit
+  // Turn the bar into a floating pill when the user scroll down a bit.
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
@@ -25,15 +43,17 @@ export function SiteNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Turn burger into an inline row
   useEffect(() => {
     const sync = () => {
-      if (window.innerWidth >= NAV_BREAKPOINT) setMenuOpen(false);
+      if (window.innerWidth >= navBreakpoint) setMenuOpen(false);
     };
     sync();
     window.addEventListener("resize", sync);
     return () => window.removeEventListener("resize", sync);
   }, []);
 
+  // Open burger menu dropdown
   useEffect(() => {
     if (!menuOpen) return;
     const onKey = (e: KeyboardEvent) => {
@@ -44,36 +64,35 @@ export function SiteNav() {
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
+  const state: NavState = scrolled ? "scrolled" : "top";
+  const styles = navStyles[state];
 
   return (
     <nav
-      className="fixed inset-x-0 z-50 mx-auto box-border flex flex-wrap items-center justify-between gap-y-2 border border-solid"
+      className={`fixed inset-x-0 z-50 mx-auto box-border flex flex-wrap items-center justify-between gap-y-2 border border-solid ${styles.bar}`}
       style={{
         top: scrolled ? "18px" : "0",
         width: scrolled ? "min(1220px, calc(100% - 32px))" : "100%",
-        padding: scrolled
-          ? "12px clamp(16px, 3vw, 30px)"
-          : "clamp(12px, 3vw, 18px) clamp(16px, 5vw, 48px)",
         borderRadius: scrolled ? "var(--radius-nav)" : "0",
         background: scrolled ? "var(--glass-bg)" : "rgba(24, 22, 26, 0)",
         backdropFilter: scrolled ? "var(--glass-blur)" : "blur(0px)",
         WebkitBackdropFilter: scrolled ? "var(--glass-blur)" : "blur(0px)",
         borderColor: scrolled ? "var(--glass-border)" : "rgba(38, 35, 42, 0)",
         boxShadow: scrolled ? "var(--glass-shadow)" : "none",
-        transitionProperty: MORPH,
+        transitionProperty: morphedProperties,
         transitionDuration: "var(--duration-nav)",
         transitionTimingFunction: "var(--ease-out-smooth)",
       }}
     >
       <Link
         href="/"
-        aria-label={`${site.wordmark} — home`}
+        aria-label={`${site.name} — home`}
         className="inline-flex items-center transition-transform duration-(--duration-fast) hover:-translate-y-px"
         onClick={closeMenu}
       >
         <IconMark className="h-10 w-auto" />
       </Link>
-
+      {/* Mobile: glass dropdown anchored under the bar */}
       <button
         type="button"
         onClick={() => setMenuOpen((open) => !open)}
@@ -95,18 +114,14 @@ export function SiteNav() {
           }
         />
       </button>
-
+      {/* Desktop: inline row */}
       <div
-        className={[
-          // Mobile: glass dropdown anchored under the bar.
+        className={cn(
           menuOpen ? "flex" : "hidden",
-          "absolute top-[calc(100%+10px)] min-w-[200px] flex-col items-stretch gap-4 rounded-panel border border-[var(--glass-border)] bg-[var(--glass-bg-menu)] px-[22px] py-5 shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-[18px] backdrop-saturate-[180%]",
-          // Desktop: inline row, no chrome.
-          "nav:static nav:flex nav:min-w-0 nav:flex-row nav:items-center nav:gap-[clamp(14px,2.5vw,30px)] nav:rounded-none nav:border-0 nav:bg-transparent nav:p-0 nav:shadow-none nav:backdrop-filter-none",
-        ].join(" ")}
-        style={{
-          right: scrolled ? "0" : "clamp(16px, 5vw, 48px)",
-        }}
+          styles.menu,
+          "absolute top-[calc(100%+10px)] min-w-[200px] flex-col items-stretch gap-4 rounded-panel border border-[var(--glass-border)] bg-[var(--glass-bg-menu)] px-[22px] py-5 shadow-(--glass-shadow-menu) backdrop-blur-[18px] backdrop-saturate-[180%]",
+          "nav:static nav:flex nav:min-w-0 nav:flex-row nav:items-center nav:gap-3.5 nav:rounded-none nav:border-0 nav:bg-transparent nav:p-0 nav:shadow-none nav:backdrop-filter-none lg:gap-5 xl:gap-[30px]",
+        )}
       >
         {navLinks.map((link) => (
           <Link
@@ -123,7 +138,7 @@ export function SiteNav() {
           icon={Download}
           color="accent"
           size="sm"
-          message="Download CV"
+          label="Download CV"
         />
       </div>
     </nav>

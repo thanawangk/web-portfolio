@@ -1,9 +1,9 @@
-import type { Project } from "@/types/content";
+import type { Project } from "@/types/content.types";
 
 export const projects: Project[] = [
   {
     slug: "pixelpad",
-    num: "01",
+    number: "01",
     name: "Pixelpad",
     tagline: "Realtime collaborative whiteboard. 40 cursors, zero fistfights.",
     stack: ["React", "Yjs", "Canvas"],
@@ -20,7 +20,7 @@ export const projects: Project[] = [
   },
   {
     slug: "shipshape",
-    num: "02",
+    number: "02",
     name: "Shipshape",
     tagline: "CI dashboard that tells you the build broke, gently.",
     stack: ["Next.js", "tRPC", "Postgres"],
@@ -37,7 +37,7 @@ export const projects: Project[] = [
   },
   {
     slug: "notely",
-    num: "03",
+    number: "03",
     name: "Notely",
     tagline:
       "Offline-first markdown notes PWA. Works on planes. Tested on planes.",
@@ -55,9 +55,10 @@ export const projects: Project[] = [
   },
   {
     slug: "queueless",
-    num: "04",
+    number: "04",
     name: "Queueless",
-    tagline: "Restaurant waitlist app. Saved thousands of humans from standing.",
+    tagline:
+      "Restaurant waitlist app. Saved thousands of humans from standing.",
     stack: ["React Native", "WebSockets"],
     shot: "queueless mobile app",
     role: "frontend lead",
@@ -73,15 +74,15 @@ export const projects: Project[] = [
 ];
 
 export function getProject(slug: string): Project | undefined {
-  return projects.find((p) => p.slug === slug);
+  return projects.find((project) => project.slug === slug);
 }
 
 /** Neighbours wrap around, matching the design's prev/next footer. */
 export function getNeighbours(slug: string) {
-  const i = projects.findIndex((p) => p.slug === slug);
-  if (i === -1) return null;
+  const index = projects.findIndex((project) => project.slug === slug);
+  if (index === -1) return null;
   return {
-    prev: projects[(i + projects.length - 1) % projects.length],
-    next: projects[(i + 1) % projects.length],
+    prev: projects[(index + projects.length - 1) % projects.length],
+    next: projects[(index + 1) % projects.length],
   };
 }

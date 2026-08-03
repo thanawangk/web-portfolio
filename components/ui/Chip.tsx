@@ -1,4 +1,5 @@
-import type { ChipProps, ChipSize, ChipTone, Tilt } from "@/types/ui";
+import { cn } from "@/lib/cn";
+import type { ChipProps, ChipSize, ChipTone, Tilt } from "@/types/ui.types";
 
 const sizes: Record<ChipSize, string> = {
   // Project card tags
@@ -21,23 +22,21 @@ const tilts: Record<Tilt, string> = {
 };
 
 export function Chip({
-  message,
+  label,
   size = "sm",
   tone = "secondary",
   tilt,
 }: ChipProps) {
   return (
     <span
-      className={[
+      className={cn(
         "inline-block rounded-pill border-border-strong font-mono",
         sizes[size],
         tones[tone],
         tilt && tilts[tilt],
-      ]
-        .filter(Boolean)
-        .join(" ")}
+      )}
     >
-      {message}
+      {label}
     </span>
   );
 }
