@@ -10,7 +10,7 @@ export function AboutSection() {
       <div className="flex flex-wrap items-start gap-7">
         <div className="min-w-[280px] grow-2 shrink basis-[420px]">
           <p className="mb-3.5 max-w-[600px] text-body leading-relaxed text-text-secondary">
-            I'm a frontend-leaning software engineer from Thailand, with 4
+            I’m a frontend-leaning software engineer from Thailand, with 4
             years of experience in design and development. I turn ideas into code
             from thoughtful interactions to scalable systems.
           </p>

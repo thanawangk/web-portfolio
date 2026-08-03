@@ -7,7 +7,7 @@ export function ProjectsSection() {
     <Section id="projects" className="pt-22">
       <SectionLabel>{"// selected work"}</SectionLabel>
       <SectionHeading className="mb-[26px]">
-        Things I've shipped
+        Things I’ve shipped
       </SectionHeading>
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(360px,100%),1fr))] gap-4.5 md:gap-5 lg:gap-6.5">
         {projects.map((project, index) => (

@@ -61,9 +61,6 @@
   --duration-fast: 0.25s;
   --duration-nav: 0.45s;
 
-  /* Nav collapses to a burger below this width */
-  --breakpoint-nav: 720px;
-
   /* Animations */
   --animate-bob: bob 5s ease-in-out infinite;
   --animate-pop-in: popIn 0.25s ease;
@@ -125,8 +122,6 @@
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
   --glass-shadow-menu: 0 12px 40px rgba(0, 0, 0, 0.45);
 
-  /* Hard offset shadows — the value carries spaces, so it lives here rather
-     than in an arbitrary class. */
   --shadow-offset-card: 12px 12px 0 var(--color-accent);
   --shadow-offset-card-hover: 22px 26px 0 var(--color-accent);
   --shadow-offset-button: 5px 5px 0 var(--color-on-accent);
@@ -137,8 +132,6 @@
   html {
     background: var(--color-bg);
     scroll-behavior: smooth;
-    /* Must live on <html>, not <body>: body-level overflow would make the body
-       its own scroll container and window.scrollY would never advance. */
     overflow-x: hidden;
   }
 
@@ -171,7 +164,6 @@
 }
 
 @utility stripes {
-  /* Diagonal-stripe placeholder used behind project screenshots. */
   background: repeating-linear-gradient(
     45deg,
     var(--color-surface-maintenance) 0 12px,
