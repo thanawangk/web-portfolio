@@ -61,6 +61,9 @@
   --duration-fast: 0.25s;
   --duration-nav: 0.45s;
 
+  /* Nav collapses to a burger below this width */
+  --breakpoint-nav: 720px;
+
   /* Animations */
   --animate-bob: bob 5s ease-in-out infinite;
   --animate-pop-in: popIn 0.25s ease;
@@ -166,9 +169,9 @@
 @utility stripes {
   background: repeating-linear-gradient(
     45deg,
-    var(--color-surface-maintenance) 0 12px,
-    var(--color-surface) 12px 24px
-  );
+      var(--color-surface-maintenance) 0 12px,
+      var(--color-surface) 12px 24px
+    );
 }
 
 @media (prefers-reduced-motion: reduce) {
