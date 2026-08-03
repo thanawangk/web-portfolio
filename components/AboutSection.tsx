@@ -8,7 +8,7 @@ export function AboutSection() {
       <SectionLabel>{"// human.exe is still running"}</SectionLabel>
       <SectionHeading className="mb-[22px]">About me</SectionHeading>
       <div className="flex flex-wrap items-start gap-7">
-        <div className="min-w-[280px] flex-[2_1_420px]">
+        <div className="min-w-[280px] grow-2 shrink basis-[420px]">
           <p className="mb-3.5 max-w-[600px] text-body leading-relaxed text-text-secondary">
             I'm a frontend-leaning software engineer from Thailand, with 4
             years of experience in design and development. I turn ideas into code
@@ -20,7 +20,7 @@ export function AboutSection() {
             learning).
           </p>
         </div>
-        <Panel title="currently…" className="min-w-[240px] flex-[1_1_260px]">
+        <Panel title="currently…" className="min-w-[240px] grow shrink basis-[260px]">
           <PanelList items={currently} />
         </Panel>
       </div>

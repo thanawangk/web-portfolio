@@ -22,8 +22,10 @@ const SIZES: Record<IconButtonSize, IconButtonVariant> = {
   md: { shell: "gap-2 px-[26px] py-[13px] text-base", icon: 20 },
 };
 
+/** Spring on the movement, plain ease on the colours — hence the per-property
+    timing list rather than a single `ease-*` utility. */
 const TRANSITION =
-  "[transition:translate_0.25s_cubic-bezier(0.34,1.56,0.64,1),rotate_0.25s_cubic-bezier(0.34,1.56,0.64,1),background-color_0.25s_ease,border-color_0.25s_ease,color_0.25s_ease]";
+  "transition-[translate,rotate,background-color,border-color,color] duration-(--duration-fast) ease-[var(--ease-spring),var(--ease-spring),ease,ease,ease]";
 
 const HOVER =
   "hover:-translate-y-0.5 hover:-rotate-1 active:translate-y-0 active:scale-[0.97]";

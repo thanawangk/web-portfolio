@@ -114,7 +114,7 @@ export function SiteNav() {
           // Mobile: glass dropdown anchored under the bar.
           menuOpen ? "flex" : "hidden",
           MENU_OFFSET[state],
-          "absolute top-[calc(100%+10px)] min-w-[200px] flex-col items-stretch gap-4 rounded-panel border border-[var(--glass-border)] bg-[var(--glass-bg-menu)] px-[22px] py-5 shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-[18px] backdrop-saturate-[180%]",
+          "absolute top-[calc(100%+10px)] min-w-[200px] flex-col items-stretch gap-4 rounded-panel border border-[var(--glass-border)] bg-[var(--glass-bg-menu)] px-[22px] py-5 shadow-(--glass-shadow-menu) backdrop-blur-[18px] backdrop-saturate-[180%]",
           // Desktop: inline row, no chrome.
           "nav:static nav:flex nav:min-w-0 nav:flex-row nav:items-center nav:gap-3.5 nav:rounded-none nav:border-0 nav:bg-transparent nav:p-0 nav:shadow-none nav:backdrop-filter-none lg:gap-5 xl:gap-[30px]",
         ].join(" ")}

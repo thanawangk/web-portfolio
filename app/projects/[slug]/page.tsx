@@ -69,7 +69,7 @@ export default async function ProjectPage({ params }: Params) {
         />
 
         <div className="flex flex-wrap items-start gap-7">
-          <div className="min-w-[260px] flex-[2_1_380px]">
+          <div className="min-w-[260px] grow-2 shrink basis-[380px]">
             <h2 className="mb-3 text-2xl font-bold">What it is</h2>
             <p className="mb-[18px] text-body leading-relaxed text-text-secondary">
               {project.what}
@@ -80,7 +80,7 @@ export default async function ProjectPage({ params }: Params) {
             </p>
           </div>
 
-          <Panel title="at a glance" className="min-w-[220px] flex-[1_1_240px]">
+          <Panel title="at a glance" className="min-w-[220px] grow shrink basis-[240px]">
             <PanelList
               items={[
                 `role: ${project.role}`,

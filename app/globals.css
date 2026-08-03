@@ -123,6 +123,14 @@
   --glass-border: rgba(255, 255, 255, 0.12);
   --glass-blur: blur(18px) saturate(180%);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  --glass-shadow-menu: 0 12px 40px rgba(0, 0, 0, 0.45);
+
+  /* Hard offset shadows — the value carries spaces, so it lives here rather
+     than in an arbitrary class. */
+  --shadow-offset-card: 12px 12px 0 var(--color-accent);
+  --shadow-offset-card-hover: 22px 26px 0 var(--color-accent);
+  --shadow-offset-button: 5px 5px 0 var(--color-on-accent);
+  --shadow-offset-button-hover: 2px 2px 0 var(--color-on-accent);
 }
 
 @layer base {

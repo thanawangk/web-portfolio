@@ -16,10 +16,10 @@ export function ExperienceSection() {
                 : ""
             }`}
           >
-            <div className="flex-[0_0_140px] pt-[3px] font-mono text-label text-text-faint">
+            <div className="grow-0 shrink-0 basis-[140px] pt-[3px] font-mono text-label text-text-faint">
               {job.period}
             </div>
-            <div className="min-w-[240px] flex-[1_1_320px]">
+            <div className="min-w-[240px] grow shrink basis-[320px]">
               <h3 className="mb-1.5 text-xl font-bold">{job.role}</h3>
               <p className="max-w-[640px] text-[15.5px] leading-body text-text-muted">
                 {job.description}
