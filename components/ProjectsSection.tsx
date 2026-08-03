@@ -9,7 +9,7 @@ export function ProjectsSection() {
       <SectionHeading className="mb-[26px]">
         Things I've shipped
       </SectionHeading>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(360px,100%),1fr))] gap-[clamp(18px,2.5vw,26px)]">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(360px,100%),1fr))] gap-4.5 md:gap-5 lg:gap-6.5">
         {projects.map((project, i) => (
           <ProjectCard
             key={project.slug}

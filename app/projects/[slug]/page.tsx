@@ -34,7 +34,7 @@ export default async function ProjectPage({ params }: Params) {
 
   return (
     <div className="min-h-screen">
-      <nav className="mx-auto box-border flex max-w-[1140px] items-center justify-between px-(--page-pad-x) py-[clamp(12px,3vw,18px)]">
+      <nav className="mx-auto box-border flex max-w-[1140px] items-center justify-between px-5 py-3 md:px-8 md:py-4 lg:px-12 lg:py-4.5">
         <Link href="/" className="font-mono text-nav font-medium text-accent">
           {site.wordmark}
         </Link>
@@ -46,14 +46,14 @@ export default async function ProjectPage({ params }: Params) {
         </Link>
       </nav>
 
-      <main className="mx-auto max-w-[900px] px-(--page-pad-x) pt-[clamp(28px,5vw,56px)] pb-[60px]">
+      <main className="mx-auto max-w-[900px] px-5 pt-7 pb-[60px] md:px-8 md:pt-10 lg:px-12 lg:pt-14">
         <p className="mb-3 font-mono text-label text-accent">
           {`// project ${project.num}`}
         </p>
-        <h1 className="mb-3.5 text-[clamp(38px,6vw,60px)] font-bold tracking-heading">
+        <h1 className="mb-3.5 text-[38px] font-bold tracking-heading md:text-[46px] lg:text-[60px]">
           {project.name}
         </h1>
-        <p className="mb-[22px] max-w-[620px] text-[clamp(17px,2.4vw,21px)] leading-body text-text-muted">
+        <p className="mb-[22px] max-w-[620px] text-[17px] leading-body text-text-muted md:text-lg lg:text-[21px]">
           {project.tagline}
         </p>
 
@@ -65,7 +65,7 @@ export default async function ProjectPage({ params }: Params) {
 
         <ScreenshotSlot
           caption={project.shot}
-          className="mb-9 h-[clamp(220px,38vw,420px)] rounded-card border-[1.5px] border-border"
+          className="mb-9 h-[220px] rounded-card border-[1.5px] border-border md:h-[290px] lg:h-[390px] xl:h-[420px]"
         />
 
         <div className="flex flex-wrap items-start gap-7">

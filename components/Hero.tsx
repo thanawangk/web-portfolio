@@ -32,22 +32,22 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative mx-auto flex min-h-[68vh] max-w-(--page-max-width) flex-wrap-reverse items-center gap-5 px-(--page-pad-x) pt-[clamp(84px,9vw,104px)]"
+      className="relative mx-auto flex min-h-[68vh] max-w-(--page-max-width) flex-wrap-reverse items-center gap-5 px-5 pt-21 md:px-8 lg:px-12 lg:pt-26"
     >
       <div className="relative z-2 min-w-[280px] flex-[1_1_380px] pt-4 pb-10">
         <div className="mb-[18px] font-mono text-label text-accent">
           {"// frontend · software engineer"}
         </div>
-        <h1 className="mb-4 text-h1 leading-tight font-bold tracking-heading">
+        <h1 className="mb-4 text-h1 leading-tight font-bold tracking-heading md:text-h1-md lg:text-h1-lg">
           Hi, my name is
           <br />
           Bank Thanawat
           <br />
-          <span className="font-hand text-[clamp(32px,6.8vw,74px)] text-accent">
+          <span className="font-hand text-[32px] text-accent md:text-[52px] lg:text-[74px]">
             less, but better.
           </span>
         </h1>
-        <p className="mb-6 max-w-[440px] text-body-lg leading-body text-text-muted">
+        <p className="mb-6 max-w-[440px] text-lead leading-body text-text-muted md:text-lead-md lg:text-lead-lg">
           Software Engineer who does a bit of web development with a passion for
           great design.
         </p>
@@ -70,7 +70,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="relative z-1 mx-auto aspect-[587/442] w-[clamp(340px,52vw,680px)] shrink-0">
+      <div className="relative z-1 mx-auto aspect-[587/442] w-[280px] shrink-0 sm:w-[340px] md:w-[400px] lg:w-[530px] xl:w-[680px]">
         <div className="absolute inset-0 z-0 animate-bob">
           <svg
             viewBox="0 0 600 620"
@@ -89,7 +89,7 @@ export function Hero() {
                 src={heroImg}
                 alt="Cartoon Bank, permanently astonished"
                 priority
-                sizes="(max-width: 900px) 52vw, 490px"
+                sizes="(min-width: 1280px) 490px, (min-width: 1024px) 384px, (min-width: 768px) 288px, 245px"
                 className="block h-auto w-full"
               />
               {bubble && (

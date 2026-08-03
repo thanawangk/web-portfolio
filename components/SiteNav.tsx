@@ -13,6 +13,21 @@ const NAV_BREAKPOINT = 720;
 const MORPH =
   "top, width, padding, border-radius, background, backdrop-filter, border-color, box-shadow";
 
+type NavState = "top" | "scrolled";
+
+/** Bar padding per scroll state. Classes rather than inline style so the
+    breakpoint steps stay readable; `padding` is still in MORPH, so it animates. */
+const BAR_PADDING: Record<NavState, string> = {
+  top: "px-4 py-3 md:px-8 md:py-4 lg:px-12 lg:py-4.5",
+  scrolled: "px-4 py-3 md:px-6 lg:px-[30px]",
+};
+
+/** Menu drops flush against the bar once it has shrunk into its pill. */
+const MENU_OFFSET: Record<NavState, string> = {
+  top: "right-4 md:right-8 lg:right-12",
+  scrolled: "right-0",
+};
+
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -44,16 +59,14 @@ export function SiteNav() {
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
+  const state: NavState = scrolled ? "scrolled" : "top";
 
   return (
     <nav
-      className="fixed inset-x-0 z-50 mx-auto box-border flex flex-wrap items-center justify-between gap-y-2 border border-solid"
+      className={`fixed inset-x-0 z-50 mx-auto box-border flex flex-wrap items-center justify-between gap-y-2 border border-solid ${BAR_PADDING[state]}`}
       style={{
         top: scrolled ? "18px" : "0",
         width: scrolled ? "min(1220px, calc(100% - 32px))" : "100%",
-        padding: scrolled
-          ? "12px clamp(16px, 3vw, 30px)"
-          : "clamp(12px, 3vw, 18px) clamp(16px, 5vw, 48px)",
         borderRadius: scrolled ? "var(--radius-nav)" : "0",
         background: scrolled ? "var(--glass-bg)" : "rgba(24, 22, 26, 0)",
         backdropFilter: scrolled ? "var(--glass-blur)" : "blur(0px)",
@@ -100,13 +113,11 @@ export function SiteNav() {
         className={[
           // Mobile: glass dropdown anchored under the bar.
           menuOpen ? "flex" : "hidden",
+          MENU_OFFSET[state],
           "absolute top-[calc(100%+10px)] min-w-[200px] flex-col items-stretch gap-4 rounded-panel border border-[var(--glass-border)] bg-[var(--glass-bg-menu)] px-[22px] py-5 shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-[18px] backdrop-saturate-[180%]",
           // Desktop: inline row, no chrome.
-          "nav:static nav:flex nav:min-w-0 nav:flex-row nav:items-center nav:gap-[clamp(14px,2.5vw,30px)] nav:rounded-none nav:border-0 nav:bg-transparent nav:p-0 nav:shadow-none nav:backdrop-filter-none",
+          "nav:static nav:flex nav:min-w-0 nav:flex-row nav:items-center nav:gap-3.5 nav:rounded-none nav:border-0 nav:bg-transparent nav:p-0 nav:shadow-none nav:backdrop-filter-none lg:gap-5 xl:gap-[30px]",
         ].join(" ")}
-        style={{
-          right: scrolled ? "0" : "clamp(16px, 5vw, 48px)",
-        }}
       >
         {navLinks.map((link) => (
           <Link

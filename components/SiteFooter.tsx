@@ -2,7 +2,7 @@ import { site, socialLinks } from "@/lib/content";
 
 export function SiteFooter() {
   return (
-    <footer className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-surface-alt px-(--page-pad-x) py-[22px] font-mono text-[13px] text-text-faint">
+    <footer className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-surface-alt px-5 py-[22px] md:px-8 lg:px-12 font-mono text-[13px] text-text-faint">
       <span>
         © {site.year} {site.owner}
       </span>
