@@ -1,11 +1,11 @@
 import { Mail } from "lucide-react";
 
-const ICON_SIZE = 21;
-const ICON_STROKE = 2.2;
+const iconSize = 21;
+const iconStroke = 2.2;
 
 function MailIcon() {
   return (
-    <Mail size={ICON_SIZE} strokeWidth={ICON_STROKE} className="shrink-0" />
+    <Mail size={iconSize} strokeWidth={iconStroke} className="shrink-0" />
   );
 }
 

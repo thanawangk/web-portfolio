@@ -8,24 +8,30 @@ import { IconMark } from "@/components/icons/IconMark";
 import { cvUrl, navLinks, site } from "@/lib/content";
 
 /** Width burger collapses into an inline row (the `nav:` variant). */
-const NAV_BREAKPOINT = 720;
+const navBreakpoint = 720;
 
-const MORPH =
+const morphedProperties =
   "top, width, padding, border-radius, background, backdrop-filter, border-color, box-shadow";
 
 type NavState = "top" | "scrolled";
 
-/** Bar padding per scroll state. Classes rather than inline style so the
-    breakpoint steps stay readable; `padding` is still in MORPH, so it animates. */
-const BAR_PADDING: Record<NavState, string> = {
-  top: "px-4 py-3 md:px-8 md:py-4 lg:px-12 lg:py-4.5",
-  scrolled: "px-4 py-3 md:px-6 lg:px-[30px]",
-};
+interface NavStateStyles {
+  /** Classes rather than inline style so the breakpoint steps stay readable;
+      `padding` is still morphed, so it animates either way. */
+  bar: string;
+  /** Menu drops flush against the bar once it has shrunk into its pill. */
+  menu: string;
+}
 
-/** Menu drops flush against the bar once it has shrunk into its pill. */
-const MENU_OFFSET: Record<NavState, string> = {
-  top: "right-4 md:right-8 lg:right-12",
-  scrolled: "right-0",
+const navStyles: Record<NavState, NavStateStyles> = {
+  top: {
+    bar: "px-4 py-3 md:px-8 md:py-4 lg:px-12 lg:py-4.5",
+    menu: "right-4 md:right-8 lg:right-12",
+  },
+  scrolled: {
+    bar: "px-4 py-3 md:px-6 lg:px-[30px]",
+    menu: "right-0",
+  },
 };
 
 export function SiteNav() {
@@ -42,7 +48,7 @@ export function SiteNav() {
 
   useEffect(() => {
     const sync = () => {
-      if (window.innerWidth >= NAV_BREAKPOINT) setMenuOpen(false);
+      if (window.innerWidth >= navBreakpoint) setMenuOpen(false);
     };
     sync();
     window.addEventListener("resize", sync);
@@ -60,10 +66,11 @@ export function SiteNav() {
 
   const closeMenu = () => setMenuOpen(false);
   const state: NavState = scrolled ? "scrolled" : "top";
+  const styles = navStyles[state];
 
   return (
     <nav
-      className={`fixed inset-x-0 z-50 mx-auto box-border flex flex-wrap items-center justify-between gap-y-2 border border-solid ${BAR_PADDING[state]}`}
+      className={`fixed inset-x-0 z-50 mx-auto box-border flex flex-wrap items-center justify-between gap-y-2 border border-solid ${styles.bar}`}
       style={{
         top: scrolled ? "18px" : "0",
         width: scrolled ? "min(1220px, calc(100% - 32px))" : "100%",
@@ -73,7 +80,7 @@ export function SiteNav() {
         WebkitBackdropFilter: scrolled ? "var(--glass-blur)" : "blur(0px)",
         borderColor: scrolled ? "var(--glass-border)" : "rgba(38, 35, 42, 0)",
         boxShadow: scrolled ? "var(--glass-shadow)" : "none",
-        transitionProperty: MORPH,
+        transitionProperty: morphedProperties,
         transitionDuration: "var(--duration-nav)",
         transitionTimingFunction: "var(--ease-out-smooth)",
       }}
@@ -113,7 +120,7 @@ export function SiteNav() {
         className={[
           // Mobile: glass dropdown anchored under the bar.
           menuOpen ? "flex" : "hidden",
-          MENU_OFFSET[state],
+          styles.menu,
           "absolute top-[calc(100%+10px)] min-w-[200px] flex-col items-stretch gap-4 rounded-panel border border-[var(--glass-border)] bg-[var(--glass-bg-menu)] px-[22px] py-5 shadow-(--glass-shadow-menu) backdrop-blur-[18px] backdrop-saturate-[180%]",
           // Desktop: inline row, no chrome.
           "nav:static nav:flex nav:min-w-0 nav:flex-row nav:items-center nav:gap-3.5 nav:rounded-none nav:border-0 nav:bg-transparent nav:p-0 nav:shadow-none nav:backdrop-filter-none lg:gap-5 xl:gap-[30px]",

@@ -20,23 +20,23 @@ const caveat = Caveat({
   weight: ["600", "700"],
 });
 
-const SITE_URL = "https://bankthanawat.vercel.app/";
-const TITLE = "Thanawat Wangkhem – Software Engineer";
-const DESCRIPTION =
+const siteUrl = "https://bankthanawat.vercel.app/";
+const siteTitle = "Thanawat Wangkhem – Software Engineer";
+const siteDescription =
   "Software Engineer who does a bit of web development with a passion for great design.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: { default: TITLE, template: "%s — bankthanawat.dev" },
-  description: DESCRIPTION,
+  metadataBase: new URL(siteUrl),
+  title: { default: siteTitle, template: "%s — bankthanawat.dev" },
+  description: siteDescription,
   applicationName: "bankthanawat.dev",
-  authors: [{ name: "Bank Thanawat", url: SITE_URL }],
+  authors: [{ name: "Bank Thanawat", url: siteUrl }],
   creator: "Bank Thanawat",
   openGraph: {
     type: "website",
     siteName: "bankthanawat.dev",
     url: "/",
-    title: TITLE,
+    title: siteTitle,
     description: "I make the web bit cooler.",
     images: ["/hero.png"],
   },
