@@ -1,5 +1,5 @@
-import type { Project } from "@/types/content";
-import type { IconSource } from "@/types/icon";
+import type { Project } from "@/types/content.types";
+import type { IconSource } from "@/types/icon.types";
 
 /**
  * Union and derived types stay as `type` — an interface cannot express a

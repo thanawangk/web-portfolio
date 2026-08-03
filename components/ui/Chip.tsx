@@ -1,4 +1,4 @@
-import type { ChipProps, ChipSize, ChipTone, Tilt } from "@/types/ui";
+import type { ChipProps, ChipSize, ChipTone, Tilt } from "@/types/ui.types";
 
 const sizes: Record<ChipSize, string> = {
   // Project card tags

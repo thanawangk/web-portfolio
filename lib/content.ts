@@ -1,5 +1,5 @@
 import { GitHubIcon, LinkedInIcon } from "@/components/icons/BrandIcons";
-import type { SocialLink } from "@/types/content";
+import type { SocialLink } from "@/types/content.types";
 
 export const site = {
   wordmark: "bankthanawat.dev",

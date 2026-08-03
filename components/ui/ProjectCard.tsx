@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Chip } from "@/components/ui/Chip";
 import { ScreenshotSlot } from "@/components/ui/ScreenshotSlot";
-import type { ProjectCardProps, Tilt } from "@/types/ui";
+import type { ProjectCardProps, Tilt } from "@/types/ui.types";
 
 const tilts: Record<Tilt, string> = {
   left: "hover:-rotate-[0.6deg]",
