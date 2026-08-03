@@ -1,18 +1,11 @@
 import type { Project } from "@/types/content.types";
 import type { IconSource } from "@/types/icon.types";
 
-/**
- * Union and derived types stay as `type` — an interface cannot express a
- * union, and object shapes stay as `interface` because TypeScript caches
- * interfaces as a single flat type.
- */
-
 export type IconButtonColor = "accent" | "light" | "outline";
 export type IconButtonSize = "sm" | "md";
 
-/** Shape of one entry in the IconButton size table. */
 export interface IconButtonVariant {
-  shell: string;
+  className: string;
   icon: number;
 }
 
@@ -25,10 +18,9 @@ export interface ButtonIconProps {
 export interface IconButtonProps {
   href: string;
   icon: IconSource;
-  message: string;
+  label: string;
   color?: IconButtonColor;
   size?: IconButtonSize;
-  /** Set on above-the-fold buttons so the raster isn't lazy-loaded. */
   eager?: boolean;
   onClick?: () => void;
   className?: string;
@@ -39,7 +31,7 @@ export type ChipTone = "secondary" | "bright";
 export type Tilt = "left" | "right";
 
 export interface ChipProps {
-  message: string;
+  label: string;
   size?: ChipSize;
   tone?: ChipTone;
   tilt?: Tilt;
@@ -48,4 +40,35 @@ export interface ChipProps {
 export interface ProjectCardProps {
   project: Project;
   tilt?: Tilt;
+}
+
+export interface MailButtonProps {
+  email: string;
+  className?: string;
+}
+
+export interface PanelProps {
+  title: string;
+  children: React.ReactNode;
+  className?: string;
+}
+
+export interface PanelListProps {
+  items: string[];
+}
+
+export interface SectionProps {
+  id?: string;
+  children: React.ReactNode;
+  className?: string;
+}
+
+export interface SectionHeadingProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export interface ScreenshotSlotProps {
+  caption: string;
+  className?: string;
 }

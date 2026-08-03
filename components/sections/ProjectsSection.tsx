@@ -10,11 +10,11 @@ export function ProjectsSection() {
         Things I've shipped
       </SectionHeading>
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(360px,100%),1fr))] gap-4.5 md:gap-5 lg:gap-6.5">
-        {projects.map((project, i) => (
+        {projects.map((project, index) => (
           <ProjectCard
             key={project.slug}
             project={project}
-            tilt={i % 2 === 0 ? "left" : "right"}
+            tilt={index % 2 === 0 ? "left" : "right"}
           />
         ))}
       </div>

@@ -6,27 +6,31 @@ import { IconButton } from "@/components/ui/IconButton";
 import heroImg from "@/public/hero.png";
 import { bubbles, socialLinks } from "@/lib/content";
 
+const bubbleVisibleMs = 2400;
+
 export function HeroSection() {
-  const charRef = useRef<HTMLDivElement>(null);
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const characterRef = useRef<HTMLDivElement>(null);
+  const bubbleTimer = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined,
+  );
   const [bubble, setBubble] = useState<string | null>(null);
 
-  useEffect(() => () => clearTimeout(timer.current ?? undefined), []);
+  useEffect(() => () => clearTimeout(bubbleTimer.current), []);
 
   const poke = () => {
-    const el = charRef.current;
-    if (el) {
+    const character = characterRef.current;
+    if (character) {
       // Restart the wobble even if it is already mid-flight.
-      el.style.animation = "none";
-      void el.offsetWidth;
-      el.style.animation = "wobble .55s ease";
+      character.style.animation = "none";
+      void character.offsetWidth;
+      character.style.animation = "wobble .55s ease";
     }
     setBubble((current) => {
-      const others = bubbles.filter((bubble) => bubble !== current);
+      const others = bubbles.filter((line) => line !== current);
       return others[Math.floor(Math.random() * others.length)];
     });
-    clearTimeout(timer.current ?? undefined);
-    timer.current = setTimeout(() => setBubble(null), 2400);
+    clearTimeout(bubbleTimer.current);
+    bubbleTimer.current = setTimeout(() => setBubble(null), bubbleVisibleMs);
   };
 
   return (
@@ -52,18 +56,15 @@ export function HeroSection() {
           great design.
         </p>
         <div className="flex flex-wrap items-center gap-4">
-          <IconButton
-            href={socialLinks[0].link}
-            icon={socialLinks[0].icon}
-            message={socialLinks[0].label}
-            color="light"
-          />
-          <IconButton
-            href={socialLinks[1].link}
-            icon={socialLinks[1].icon}
-            message={socialLinks[1].label}
-            color="outline"
-          />
+          {socialLinks.map((social, index) => (
+            <IconButton
+              key={social.label}
+              href={social.href}
+              icon={social.icon}
+              label={social.label}
+              color={index === 0 ? "light" : "outline"}
+            />
+          ))}
         </div>
         <div className="mt-[30px] -rotate-2 font-hand text-[23px] text-text-faint">
           ↓ scroll
@@ -84,11 +85,11 @@ export function HeroSection() {
             />
           </svg>
           <div className="pointer-events-none absolute inset-0 flex items-end justify-center">
-            <div ref={charRef} className="@container relative w-[72%]">
+            <div ref={characterRef} className="@container relative w-[72%]">
               <Image
                 src={heroImg}
                 alt="Cartoon Bank, permanently astonished"
-                priority
+                preload
                 sizes="(min-width: 1280px) 490px, (min-width: 1024px) 384px, (min-width: 768px) 288px, 245px"
                 className="block h-auto w-full"
               />

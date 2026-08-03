@@ -9,18 +9,21 @@ export function SkillsSection() {
       <SectionHeading className="mb-6">Skills</SectionHeading>
       <div className="flex flex-col gap-[18px]">
         {skillGroups.map((group) => (
-          <div key={group.label} className="flex flex-wrap items-baseline gap-6">
+          <div
+            key={group.label}
+            className="flex flex-wrap items-baseline gap-6"
+          >
             <h3 className="w-[170px] font-hand text-hand font-normal text-accent">
               {group.label}
             </h3>
             <div className="flex flex-wrap gap-2.5">
-              {group.items.map((item, i) => (
+              {group.items.map((item, index) => (
                 <Chip
                   key={item}
-                  message={item}
+                  label={item}
                   size="skill"
                   tone={group.emphasis ? "bright" : "secondary"}
-                  tilt={i % 2 === 0 ? "left" : "right"}
+                  tilt={index % 2 === 0 ? "left" : "right"}
                 />
               ))}
             </div>

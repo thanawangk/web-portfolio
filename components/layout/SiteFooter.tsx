@@ -7,10 +7,10 @@ export function SiteFooter() {
         © {site.year} {site.owner}
       </span>
       <div className="-my-2.5 -mr-2.5 flex items-center gap-1">
-        {socialLinks.map(({ label, link, icon: Icon }) => (
+        {socialLinks.map(({ label, href, icon: Icon }) => (
           <a
             key={label}
-            href={link}
+            href={href}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={label}

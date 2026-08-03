@@ -2,7 +2,7 @@ import type { IconComponent } from "@/types/icon.types";
 
 export interface SocialLink {
   label: string;
-  link: string;
+  href: string;
   icon: IconComponent;
 }
 
@@ -13,11 +13,10 @@ export interface ProjectLink {
 
 export interface Project {
   slug: string;
-  num: string;
+  number: string;
   name: string;
   tagline: string;
   stack: string[];
-  /** Placeholder caption for the screenshot slot. */
   shot: string;
   role: string;
   year: string;

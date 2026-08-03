@@ -5,9 +5,9 @@ import { Download } from "lucide-react";
 import { useEffect, useState } from "react";
 import { IconButton } from "@/components/ui/IconButton";
 import { IconMark } from "@/components/icons/IconMark";
+import { cn } from "@/lib/cn";
 import { cvUrl, navLinks, site } from "@/lib/content";
 
-/** Width burger collapses into an inline row (the `nav:` variant). */
 const navBreakpoint = 720;
 
 const morphedProperties =
@@ -16,10 +16,7 @@ const morphedProperties =
 type NavState = "top" | "scrolled";
 
 interface NavStateStyles {
-  /** Classes rather than inline style so the breakpoint steps stay readable;
-      `padding` is still morphed, so it animates either way. */
   bar: string;
-  /** Menu drops flush against the bar once it has shrunk into its pill. */
   menu: string;
 }
 
@@ -38,7 +35,7 @@ export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Turn nav into "scrolled" state when the user scroll down a bit
+  // Turn the bar into a floating pill when the user scroll down a bit.
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
@@ -46,6 +43,7 @@ export function SiteNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Turn burger into an inline row
   useEffect(() => {
     const sync = () => {
       if (window.innerWidth >= navBreakpoint) setMenuOpen(false);
@@ -55,6 +53,7 @@ export function SiteNav() {
     return () => window.removeEventListener("resize", sync);
   }, []);
 
+  // Open burger menu dropdown
   useEffect(() => {
     if (!menuOpen) return;
     const onKey = (e: KeyboardEvent) => {
@@ -87,13 +86,13 @@ export function SiteNav() {
     >
       <Link
         href="/"
-        aria-label={`${site.wordmark} — home`}
+        aria-label={`${site.name} — home`}
         className="inline-flex items-center transition-transform duration-(--duration-fast) hover:-translate-y-px"
         onClick={closeMenu}
       >
         <IconMark className="h-10 w-auto" />
       </Link>
-
+      {/* Mobile: glass dropdown anchored under the bar */}
       <button
         type="button"
         onClick={() => setMenuOpen((open) => !open)}
@@ -115,16 +114,14 @@ export function SiteNav() {
           }
         />
       </button>
-
+      {/* Desktop: inline row */}
       <div
-        className={[
-          // Mobile: glass dropdown anchored under the bar.
+        className={cn(
           menuOpen ? "flex" : "hidden",
           styles.menu,
           "absolute top-[calc(100%+10px)] min-w-[200px] flex-col items-stretch gap-4 rounded-panel border border-[var(--glass-border)] bg-[var(--glass-bg-menu)] px-[22px] py-5 shadow-(--glass-shadow-menu) backdrop-blur-[18px] backdrop-saturate-[180%]",
-          // Desktop: inline row, no chrome.
           "nav:static nav:flex nav:min-w-0 nav:flex-row nav:items-center nav:gap-3.5 nav:rounded-none nav:border-0 nav:bg-transparent nav:p-0 nav:shadow-none nav:backdrop-filter-none lg:gap-5 xl:gap-[30px]",
-        ].join(" ")}
+        )}
       >
         {navLinks.map((link) => (
           <Link
@@ -141,7 +138,7 @@ export function SiteNav() {
           icon={Download}
           color="accent"
           size="sm"
-          message="Download CV"
+          label="Download CV"
         />
       </div>
     </nav>

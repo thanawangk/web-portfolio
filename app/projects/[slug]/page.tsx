@@ -36,7 +36,7 @@ export default async function ProjectPage({ params }: Params) {
     <div className="min-h-screen">
       <nav className="mx-auto box-border flex max-w-[1140px] items-center justify-between px-5 py-3 md:px-8 md:py-4 lg:px-12 lg:py-4.5">
         <Link href="/" className="font-mono text-nav font-medium text-accent">
-          {site.wordmark}
+          {site.name}
         </Link>
         <Link
           href="/#projects"
@@ -48,7 +48,7 @@ export default async function ProjectPage({ params }: Params) {
 
       <main className="mx-auto max-w-[900px] px-5 pt-7 pb-[60px] md:px-8 md:pt-10 lg:px-12 lg:pt-14">
         <p className="mb-3 font-mono text-label text-accent">
-          {`// project ${project.num}`}
+          {`// project ${project.number}`}
         </p>
         <h1 className="mb-3.5 text-[38px] font-bold tracking-heading md:text-[46px] lg:text-[60px]">
           {project.name}
@@ -59,7 +59,7 @@ export default async function ProjectPage({ params }: Params) {
 
         <div className="mb-8 flex flex-wrap gap-2">
           {project.stack.map((tech) => (
-            <Chip key={tech} size="md" message={tech} />
+            <Chip key={tech} size="md" label={tech} />
           ))}
         </div>
 
