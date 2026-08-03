@@ -1,7 +1,10 @@
+import { GitHubIcon, LinkedInIcon } from "@/components/BrandIcons";
+import type { SocialLink } from "@/types/content";
+
 export const site = {
   wordmark: "bankthanawat.dev",
   email: "thanawat.wangk@outlook.com",
-  owner: "Bank Thanawat",
+  owner: "Thanawat Wangkhem",
   year: 2026,
   colophon: "made with too many divs",
 };
@@ -16,10 +19,17 @@ export const navLinks = [
   // { href: "/#contact", label: "Contact" },
 ];
 
-export const socialLinks = [
-  { label: "LinkedIn", link: "https://www.linkedin.com/in/thanawangk/" },
-  { label: "GitHub", link: "https://github.com/thanawangk" },
-  { label: "Twitter", link: "#" },
+export const socialLinks: SocialLink[] = [
+  {
+    label: "LinkedIn",
+    link: "https://www.linkedin.com/in/thanawangk/",
+    icon: LinkedInIcon,
+  },
+  {
+    label: "GitHub",
+    link: "https://github.com/thanawangk",
+    icon: GitHubIcon,
+  },
 ];
 
 export const experience = [

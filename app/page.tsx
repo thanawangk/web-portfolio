@@ -9,13 +9,7 @@ import { Chip } from "@/components/Chip";
 import { Panel, PanelList } from "@/components/Panel";
 import { Section, SectionHeading, SectionLabel } from "@/components/Section";
 import { projects } from "@/lib/projects";
-import {
-  currently,
-  experience,
-  site,
-  skillGroups,
-  socialLinks,
-} from "@/lib/content";
+import { currently, experience, site, skillGroups } from "@/lib/content";
 
 export default function Home() {
   return (

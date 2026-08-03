@@ -1,3 +1,11 @@
+import type { IconComponent } from "@/types/ui";
+
+export interface SocialLink {
+  label: string;
+  link: string;
+  icon: IconComponent;
+}
+
 export interface ProjectLink {
   label: string;
   href: string;

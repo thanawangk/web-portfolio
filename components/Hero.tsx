@@ -4,8 +4,6 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { IconButton } from "@/components/IconButton";
 import heroImg from "@/public/hero.png";
-import linkedinIcon from "@/public/images/linkedin.png";
-import githubIcon from "@/public/images/github.png";
 import { bubbles, socialLinks } from "@/lib/content";
 
 export function Hero() {
@@ -56,17 +54,15 @@ export function Hero() {
         <div className="flex flex-wrap items-center gap-4">
           <IconButton
             href={socialLinks[0].link}
-            icon={linkedinIcon}
+            icon={socialLinks[0].icon}
             message={socialLinks[0].label}
             color="light"
-            eager
           />
           <IconButton
             href={socialLinks[1].link}
-            icon={githubIcon}
+            icon={socialLinks[1].icon}
             message={socialLinks[1].label}
             color="outline"
-            eager
           />
         </div>
         <div className="mt-[30px] -rotate-2 font-hand text-[23px] text-text-faint">
